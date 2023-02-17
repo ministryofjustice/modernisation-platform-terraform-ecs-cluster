@@ -42,3 +42,9 @@ variable "ec2_egress_rules" {
     cidr_blocks     = list(string)
   }))
 }
+
+variable "log_retention_in_days" {
+  description = "Log retention in days"
+  type        = number
+  default     = 30
+}
