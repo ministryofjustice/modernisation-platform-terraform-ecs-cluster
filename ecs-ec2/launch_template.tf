@@ -1,6 +1,6 @@
 resource "aws_launch_template" "this" {
   name_prefix   = "${var.name}-lt"
-  image_id      = data.aws_ami.ecs-optimized.id
+  image_id      = jsondecode(data.aws_ssm_parameter.latest_ecs.value)["image_id"]
   instance_type = var.instance_type
   key_name      = var.key_name
   ebs_optimized = true

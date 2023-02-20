@@ -19,7 +19,7 @@ variable "user_data" {
   type        = string
 }
 
-variable "ec2_ingress_rules" {
+variable "ingress_rules" {
   description = "Security group ingress rules for the cluster EC2s"
   type = map(object({
     description     = string
@@ -31,7 +31,7 @@ variable "ec2_ingress_rules" {
   }))
 }
 
-variable "ec2_egress_rules" {
+variable "egress_rules" {
   description = "Security group egress rules for the cluster EC2s"
   type = map(object({
     description     = string
@@ -48,3 +48,42 @@ variable "log_retention_in_days" {
   type        = number
   default     = 30
 }
+
+variable "name" {
+  description = "Cluster name"
+  type        = string
+}
+
+
+variable "tags_common" {
+  type        = map(string)
+  description = "Common tags to be used by all resources"
+  default = {
+    "key" = "value"
+  }
+}
+
+variable "key_name" {
+  description = "Key name to use for the cluster EC2s"
+  type        = string
+  default     = ""
+}
+
+variable "desired_capacity" {
+  description = "Desired capacity of the cluster"
+  type        = number
+  default     = 1
+}
+
+variable "min_size" {
+  description = "Minimum size of the cluster"
+  type        = number
+  default     = 1
+}
+
+variable "max_size" {
+  description = "Maximum size of the cluster"
+  type        = number
+  default     = 1
+}
+
