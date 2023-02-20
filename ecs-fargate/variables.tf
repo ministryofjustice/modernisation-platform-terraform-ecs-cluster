@@ -52,12 +52,6 @@ variable "tags_common" {
   }
 }
 
-variable "desired_capacity" {
-  description = "Desired capacity of the cluster"
-  type        = number
-  default     = 1
-}
-
 variable "min_capacity" {
   description = "Minimum size of the cluster"
   type        = number
@@ -70,39 +64,41 @@ variable "max_capacity" {
   default     = 1
 }
 
-variable "ecs_auto_scale_role_name" {
-  description = "The name of the ECS Auto Scale Role"
-}
-
 
 variable "scale_up_step" {
   description = "The number of instances to add when scaling up"
+  type        = number
   default     = 1
 }
 
 variable "scale_down_step" {
   # scale down by 1: value should be -1
   description = "The number of instances to add when scaling down"
+  type        = number
   default     = -1
 }
 
 variable "scale_down_cooldown" {
   description = "The number of seconds to wait before scaling down"
+  type        = number
   default     = 300
 }
 
 variable "scale_up_cooldown" {
   description = "The number of seconds to wait before scaling up"
+  type        = number
   default     = 300
 }
 
 variable "scale_down_cpu_threshold" {
   description = "Threshold to trigger scale down"
+  type        = number
   default     = 10
 }
 
 variable "scale_up_cpu_threshold" {
   description = "Threshold to trigger scale up"
+  type        = number
   default     = 85
 }
 

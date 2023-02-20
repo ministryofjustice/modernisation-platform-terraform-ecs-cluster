@@ -1,12 +1,12 @@
 resource "aws_appautoscaling_target" "this" {
-  service_namespace  = "ecs"
-  resource_id        = "service/${aws_ecs_cluster.this.name}/${aws_ecs_service.this.name}"
+  service_namespace = "ecs"
+  # resource_id        = "service/${aws_ecs_cluster.this.name}/${aws_ecs_service.this.name}"
+  resource_id        = aws_ecs_service.this.id
   scalable_dimension = "ecs:service:DesiredCount"
   role_arn           = aws_iam_role.fargate_cluster.arn
   min_capacity       = var.min_capacity
   max_capacity       = var.max_capacity
 }
-
 resource "aws_appautoscaling_policy" "up" {
   name              = "${var.name}-fargate-cluster-scale-up"
   service_namespace = "ecs"
