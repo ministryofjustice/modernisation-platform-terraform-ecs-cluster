@@ -21,3 +21,21 @@ resource "aws_iam_role" "ec2_cluster" {
     }
     EOF
 }
+
+// attach AmazonSSMManagedInstanceCore to role
+resource "aws_iam_role_policy_attachment" "ec2_cluster_ssm" {
+  role       = aws_iam_role.ec2_cluster.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
+
+// attach AmazonEC2ContainerServiceforEC2Role to instance profile
+resource "aws_iam_role_policy_attachment" "ec2_cluster_ecs" {
+  role       = aws_iam_role.ec2_cluster.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
+}
+
+// attach CloudWatchAgentServerPolicy
+resource "aws_iam_role_policy_attachment" "ec2_cluster_cloudwatch" {
+  role       = aws_iam_role.ec2_cluster.name
+  policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
+}
