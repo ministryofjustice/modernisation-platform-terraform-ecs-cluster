@@ -3,19 +3,20 @@ resource "aws_appautoscaling_target" "this" {
   resource_id        = "service/${aws_ecs_cluster.this.name}/${aws_ecs_service.this.name}"
   scalable_dimension = "ecs:service:DesiredCount"
   role_arn           = aws_iam_role.fargate_cluster.arn
-  min_capacity       = 3
-  max_capacity       = 6
+  min_capacity       = var.min_capacity
+  max_capacity       = var.max_capacity
 }
 
 resource "aws_appautoscaling_policy" "up" {
-  name               = "cb_scale_up"
-  service_namespace  = "ecs"
-  resource_id        = "service/${aws_ecs_cluster.this.name}/${aws_ecs_service.this.name}"
+  name              = "${var.name}-fargate-cluster-scale-up"
+  service_namespace = "ecs"
+  # resource_id        = "service/${aws_ecs_cluster.this.name}/${aws_ecs_service.this.name}"
+  resource_id        = aws_ecs_service.this.id
   scalable_dimension = "ecs:service:DesiredCount"
 
   step_scaling_policy_configuration {
     adjustment_type         = "ChangeInCapacity"
-    cooldown                = 60
+    cooldown                = var.scale_up_cooldown
     metric_aggregation_type = "Maximum"
 
     step_adjustment {
@@ -29,14 +30,15 @@ resource "aws_appautoscaling_policy" "up" {
 
 
 resource "aws_appautoscaling_policy" "down" {
-  name               = "cb_scale_down"
-  service_namespace  = "ecs"
-  resource_id        = "service/${aws_ecs_cluster.this.name}/${aws_ecs_service.this.name}"
+  name              = "${var.name}-fargate-cluster-scale-down"
+  service_namespace = "ecs"
+  # resource_id        = "service/${aws_ecs_cluster.this.name}/${aws_ecs_service.this.name}"
+  resource_id        = aws_ecs_service.this.id
   scalable_dimension = "ecs:service:DesiredCount"
 
   step_scaling_policy_configuration {
     adjustment_type         = "ChangeInCapacity"
-    cooldown                = 60
+    cooldown                = var.scale_down_cooldown
     metric_aggregation_type = "Maximum"
 
     step_adjustment {
@@ -49,7 +51,7 @@ resource "aws_appautoscaling_policy" "down" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "service_cpu_high" {
-  alarm_name          = "cb_cpu_utilization_high"
+  alarm_name          = "${var.name}-fargate-cluster-cpu-utilization-high"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = "2"
   metric_name         = "CPUUtilization"
@@ -67,7 +69,7 @@ resource "aws_cloudwatch_metric_alarm" "service_cpu_high" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "service_cpu_low" {
-  alarm_name          = "cb_cpu_utilization_low"
+  alarm_name          = "${var.name}-fargate-cluster-cpu-utilization-low"
   comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = "2"
   metric_name         = "CPUUtilization"
