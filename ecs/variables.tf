@@ -90,5 +90,5 @@ variable "max_size" {
 variable "ec2_capacity_enabled" {
   description = "Enable EC2 capacity"
   type        = bool
-  default     = true
+  default     = false
 }
