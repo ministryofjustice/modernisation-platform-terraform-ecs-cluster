@@ -1,4 +1,5 @@
 resource "aws_autoscaling_group" "this" {
+  count                 = var.ec2_capacity_enabled == true ? 0 : 1
   min_size              = var.min_size
   max_size              = var.max_size
   desired_capacity      = var.desired_capacity
