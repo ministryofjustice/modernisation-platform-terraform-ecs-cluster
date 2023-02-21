@@ -45,12 +45,6 @@ resource "aws_iam_role_policy_attachment" "ec2_cluster_cloudwatch" {
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
 }
 
-
-resource "aws_iam_instance_profile" "fargate_cluster" {
-  name = "${var.name}-fargate-cluster-instance-profile"
-  role = aws_iam_role.ecs_fargate.name
-}
-
 resource "aws_iam_role" "ecs_fargate" {
   name = "role-name-task"
 
