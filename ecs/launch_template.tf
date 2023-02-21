@@ -1,5 +1,5 @@
 resource "aws_launch_template" "this" {
-  count         = var.ec2_capacity_enabled == true ? 1 : 0
+  count         = var.ec2_capacity_enabled ? 1 : 0
   name_prefix   = "${var.name}-lt"
   image_id      = jsondecode(data.aws_ssm_parameter.latest_ecs.value)["image_id"]
   instance_type = var.instance_type
