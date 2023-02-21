@@ -23,11 +23,11 @@ resource "aws_iam_role" "fargate_cluster" {
 EOF
 }
 
-// attach AmazonSSMManagedInstanceCore to role
-resource "aws_iam_role_policy_attachment" "fargate_cluster_ssm" {
-  role       = aws_iam_role.fargate_cluster.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-}
+# // attach AmazonSSMManagedInstanceCore to role
+# resource "aws_iam_role_policy_attachment" "fargate_cluster_ssm" {
+#   role       = aws_iam_role.fargate_cluster.name
+#   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+# }
 
 // attach CloudWatchAgentServerPolicy
 resource "aws_iam_role_policy_attachment" "fargate_cluster_cloudwatch" {

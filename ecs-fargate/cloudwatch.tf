@@ -1,6 +1,6 @@
 resource "aws_cloudwatch_log_group" "this" {
   #checkov:skip=CKV_AWS_158:Temporarily skip KMS encryption check while logging solution is being updated
-  name              = "${var.name}-ecs"
+  name              = "${var.name}-ecs-fargate"
   retention_in_days = var.log_retention_in_days
   tags = merge(
     var.tags_common,
@@ -11,6 +11,6 @@ resource "aws_cloudwatch_log_group" "this" {
 }
 
 resource "aws_cloudwatch_log_stream" "this" {
-  name           = "${var.name}-log-stream"
+  name           = "${var.name}-log-stream-fargate"
   log_group_name = aws_cloudwatch_log_group.this.name
 }

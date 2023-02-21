@@ -1,15 +1,7 @@
-resource "aws_ecs_cluster" "this" {
-  name = var.name
-  setting {
-    name  = "containerInsights"
-    value = "enabled"
-  }
-}
-
 resource "aws_ecs_service" "this" {
   name            = "${var.name}-ecs-service"
   cluster         = aws_ecs_cluster.this.id
-  launch_type     = "FARGATE"
+  launch_type     = var.launch_type
   task_definition = var.ecs_task_definition_arn
   desired_count   = var.replicas
 
