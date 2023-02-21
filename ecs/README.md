@@ -92,7 +92,7 @@ No modules.
 | <a name="output_cluster_id"></a> [cluster\_id](#output\_cluster\_id) | n/a |
 | <a name="output_cluster_name"></a> [cluster\_name](#output\_cluster\_name) | n/a |
 | <a name="output_cluster_role_arn_ec2"></a> [cluster\_role\_arn\_ec2](#output\_cluster\_role\_arn\_ec2) | n/a |
-| <a name="output_cluster_role_arn_fargate"></a> [cluster\_role\_arn\_fargate](#output\_cluster\_role\_arn\_fargate) | n/a |
+| <a name="output_task_execution_role_arn"></a> [task\_execution\_role\_arn](#output\_task\_execution\_role\_arn) | n/a |
 <!-- END_TF_DOCS -->
 
 <!-- Uncomment the below if this module uses tags -->
