@@ -32,7 +32,10 @@ variable "launch_type" {
 
 variable "network_mode" {
   type        = string
-  description = "The network mode to use for the task. This is required to be `awsvpc` for `FARGATE` `launch_type` or `null` for `EC2` `launch_type`"
+  description = <<-EOT
+    The network mode to use for the task. This is required to be `awsvpc` for `FARGATE` `launch_type`.
+    For `EC2` `launch_type` the `network_mode` can be `bridge`, `host`, `awsvpc`, `none`, or `null`.
+  EOT
   default     = "awsvpc"
 }
 
@@ -161,7 +164,7 @@ variable "service_role_arn" {
 }
 
 variable "task_exec_role_arn" {
-  type        = any
+  type        = list(string)
   description = <<-EOT
     A `list(string)` of zero or one ARNs of IAM roles that allows the
     ECS/Fargate agent to make calls to the ECS API on your behalf.
@@ -170,10 +173,15 @@ variable "task_exec_role_arn" {
     string must be known a "plan" time.
     EOT
   default     = []
+
+  validation {
+    condition     = length(var.task_exec_role_arn) <= 1
+    error_message = "The task_exec_role_arn value must be a list of zero or one ARNs."
+  }
 }
 
 variable "task_role_arn" {
-  type        = any
+  type        = list(string)
   description = <<-EOT
     A `list(string)` of zero or one ARNs of IAM roles that allows
     your Amazon ECS container task to make calls to other AWS services.
@@ -182,6 +190,11 @@ variable "task_role_arn" {
     string must be known a "plan" time.
     EOT
   default     = []
+
+  validation {
+    condition     = length(var.task_role_arn) <= 1
+    error_message = "The task_role_arn value must be a list of zero or one ARNs."
+  }
 }
 
 variable "permissions_boundary" {
