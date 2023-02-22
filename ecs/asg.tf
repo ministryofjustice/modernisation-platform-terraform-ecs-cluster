@@ -1,4 +1,5 @@
 resource "aws_autoscaling_group" "this" {
+  count                 = var.ec2_capacity_enabled ? 1 : 0
   min_size              = var.min_size
   max_size              = var.max_size
   desired_capacity      = var.desired_capacity
@@ -6,7 +7,7 @@ resource "aws_autoscaling_group" "this" {
   protect_from_scale_in = true
 
   launch_template {
-    id      = aws_launch_template.this.id
+    id      = aws_launch_template.this[0].id
     version = "$Latest"
   }
   tag {

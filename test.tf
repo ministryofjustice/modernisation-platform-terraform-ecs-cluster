@@ -1,5 +1,5 @@
 module "ecs" {
-  source        = "./ecs-ec2"
+  source        = "./ecs"
   name          = "test"
   vpc_id        = "vpc-01d7a2da8f9f1dfec"
   subnet_ids    = ["subnet-04af8bd9dbbce3310", "subnet-0131824ef5a4ece01", "subnet-01815760b71d6a619"]
@@ -18,7 +18,7 @@ module "ecs" {
       to_port         = 0
       protocol        = "-1"
       security_groups = []
-      cidr_blocks     = [
+      cidr_blocks = [
         "0.0.0.0/0"
       ]
     }
@@ -30,7 +30,7 @@ module "ecs" {
       to_port         = 0
       protocol        = "-1"
       security_groups = []
-      cidr_blocks     = [
+      cidr_blocks = [
         "0.0.0.0/0"
       ]
     }
