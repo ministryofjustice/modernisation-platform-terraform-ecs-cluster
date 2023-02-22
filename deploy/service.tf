@@ -1,8 +1,6 @@
-
 locals {
   volumes = concat(var.docker_volumes, var.efs_volumes, var.fsx_volumes, var.bind_mount_volumes)
   task_role_arn           = try(var.task_role_arn[0], tostring(var.task_role_arn), "")
-  create_task_role        = length(var.task_role_arn) == 0
   enable_ecs_service_role = var.network_mode != "awsvpc" && length(var.ecs_load_balancers) >= 1
 }
 

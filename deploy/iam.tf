@@ -1,3 +1,7 @@
+locals {
+  create_task_role = length(var.task_role_arn) == 0
+}
+
 data "aws_iam_policy_document" "ecs_task" {
   count = local.create_task_role ? 1 : 0
 
