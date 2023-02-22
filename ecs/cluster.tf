@@ -7,15 +7,17 @@ resource "aws_ecs_cluster" "this" {
 }
 
 resource "aws_ecs_cluster_capacity_providers" "this" {
+  count              = var.ec2_capacity_enabled == true ? 1 : 0
   cluster_name       = aws_ecs_cluster.this.name
-  capacity_providers = [aws_ecs_capacity_provider.this.name]
+  capacity_providers = [aws_ecs_capacity_provider.this[0].name]
 }
 
 resource "aws_ecs_capacity_provider" "this" {
-  name = "${var.name}-capacity-provider"
+  count = var.ec2_capacity_enabled == true ? 1 : 0
+  name  = "${var.name}-capacity-provider"
 
   auto_scaling_group_provider {
-    auto_scaling_group_arn         = aws_autoscaling_group.this.arn
+    auto_scaling_group_arn         = aws_autoscaling_group.this[0].arn
     managed_termination_protection = "ENABLED"
 
     managed_scaling {

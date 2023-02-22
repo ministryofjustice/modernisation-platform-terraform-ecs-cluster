@@ -1,4 +1,5 @@
 resource "aws_launch_template" "this" {
+  count         = var.ec2_capacity_enabled ? 1 : 0
   name_prefix   = "${var.name}-lt"
   image_id      = jsondecode(data.aws_ssm_parameter.latest_ecs.value)["image_id"]
   instance_type = var.instance_type
@@ -20,7 +21,7 @@ resource "aws_launch_template" "this" {
   }
 
   iam_instance_profile {
-    name = aws_iam_instance_profile.ec2_cluster.name
+    name = aws_iam_instance_profile.ecs_ec2[0].name
   }
 
   block_device_mappings {
