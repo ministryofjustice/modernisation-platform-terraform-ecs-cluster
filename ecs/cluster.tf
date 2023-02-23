@@ -7,8 +7,9 @@ resource "aws_ecs_cluster" "this" {
       name  = "containerInsights"
       value = "enabled"
     }
-    
+
   }
+}
 
 resource "aws_ecs_cluster_capacity_providers" "this" {
   count              = var.ec2_capacity_enabled ? 1 : 0
