@@ -92,3 +92,34 @@ variable "ec2_capacity_enabled" {
   type        = bool
   default     = false
 }
+
+variable "capacity_provider_maximum_scaling_step_size" {
+  description = "Maximum scaling step size for the capacity provider"
+  type        = number
+  default     = 1000
+}
+
+variable "capacity_provider_minimum_scaling_step_size" {
+  description = "Minimum scaling step size for the capacity provider"
+  type        = number
+  default     = 1
+}
+
+variable "capacity_provider_desired_capacity" {
+  description = "Desired capacity for the capacity provider"
+  type        = number
+  default     = 10
+}
+
+variable "enable_managed_scaling" {
+  description = "Enable managed scaling for the capacity provider"
+  type        = bool
+  default     = false
+}
+
+
+variable "enable_container_insights" {
+  description = "Enable container insights"
+  type        = bool
+  default     = false
+}

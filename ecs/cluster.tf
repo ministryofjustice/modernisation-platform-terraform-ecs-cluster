@@ -1,10 +1,14 @@
 resource "aws_ecs_cluster" "this" {
   name = var.name
-  setting {
-    name  = "containerInsights"
-    value = "enabled"
+
+  dynamic "setting" {
+    count = var.enable_container_insights ? 1 : 0
+    content {
+      name  = "containerInsights"
+      value = "enabled"
+    }
+    
   }
-}
 
 resource "aws_ecs_cluster_capacity_providers" "this" {
   count              = var.ec2_capacity_enabled ? 1 : 0
@@ -21,10 +25,10 @@ resource "aws_ecs_capacity_provider" "this" {
     managed_termination_protection = "ENABLED"
 
     managed_scaling {
-      maximum_scaling_step_size = 1000
-      minimum_scaling_step_size = 1
-      status                    = "ENABLED"
-      target_capacity           = 10
+      maximum_scaling_step_size = var.capacity_provider_maximum_scaling_step_size
+      minimum_scaling_step_size = var.capacity_provider_minimum_scaling_step_size
+      status                    = var.enable_managed_scaling ? "ENABLED" : "DISABLED"
+      target_capacity           = var.capacity_provider_desired_capacity
     }
   }
 
