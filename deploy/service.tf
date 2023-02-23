@@ -1,5 +1,5 @@
 locals {
-  volumes = concat(var.docker_volumes, var.efs_volumes, var.fsx_volumes, var.bind_mount_volumes)
+  volumes                 = concat(var.docker_volumes, var.efs_volumes, var.fsx_volumes, var.bind_mount_volumes)
   task_role_arn           = try(var.task_role_arn[0], tostring(var.task_role_arn), "")
   enable_ecs_service_role = var.network_mode != "awsvpc" && length(var.ecs_load_balancers) >= 1
 }
@@ -12,7 +12,7 @@ resource "aws_ecs_task_definition" "this" {
   cpu                      = var.task_cpu
   memory                   = var.task_memory
   execution_role_arn       = var.task_exec_role_arn
-  task_role_arn            = length(local.task_role_arn) > 0 ? local.task_role_arn : aws_iam_role.ecs_task.[0].arn
+  task_role_arn            = length(local.task_role_arn) > 0 ? local.task_role_arn : aws_iam_role.ecs_task[0].arn
 
   dynamic "proxy_configuration" {
     for_each = var.proxy_configuration == null ? [] : [var.proxy_configuration]
@@ -111,7 +111,7 @@ resource "aws_ecs_service" "default" {
   platform_version                   = var.launch_type == "FARGATE" ? var.platform_version : null
   scheduling_strategy                = var.launch_type == "FARGATE" ? "REPLICA" : var.scheduling_strategy
   enable_ecs_managed_tags            = var.enable_ecs_managed_tags
-  iam_role                           = local.enable_ecs_service_role ? coalesce(var.service_role_arn, aws_iam_role.ecs_service.[0].arn) : null
+  iam_role                           = local.enable_ecs_service_role ? coalesce(var.service_role_arn, aws_iam_role.ecs_service[0].arn) : null
   wait_for_steady_state              = var.wait_for_steady_state
   force_new_deployment               = var.force_new_deployment
   enable_execute_command             = var.exec_enabled
