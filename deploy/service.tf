@@ -173,7 +173,7 @@ resource "aws_ecs_service" "default" {
   dynamic "network_configuration" {
     for_each = var.network_mode == "awsvpc" ? ["true"] : []
     content {
-      security_groups  = compact(concat(var.security_group_ids, aws_security_group.ecs_service.*.id))
+      security_groups  = compact(concat(var.security_group_ids, aws_security_group.ecs_service[0].id))
       subnets          = var.subnet_ids
       assign_public_ip = var.assign_public_ip
     }
