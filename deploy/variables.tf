@@ -402,6 +402,24 @@ variable "circuit_breaker_rollback_enabled" {
   default     = false
 }
 
+variable "use_alb_security_group" {
+  type        = bool
+  description = "A flag to enable/disable allowing traffic from the ALB security group to the service security group"
+  default     = false
+}
+
+variable "alb_security_group" {
+  type        = string
+  description = "Security group of the ALB"
+  default     = ""
+}
+
+variable "container_port" {
+  type        = number
+  description = "The port on the container to allow traffic from the ALB security group"
+  default     = 80
+}
+
 variable "tags_common" {
   type        = map(string)
   description = "Common tags to be used by all resources"
