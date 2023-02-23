@@ -46,7 +46,7 @@ resource "aws_iam_role_policy_attachment" "ec2_cluster_cloudwatch" {
 }
 
 resource "aws_iam_role" "ecs_fargate" {
-  name = "role-name-task"
+  name = "ecs-task-execution-role"
 
   assume_role_policy = <<EOF
 {
