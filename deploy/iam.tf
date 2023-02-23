@@ -46,7 +46,7 @@ data "aws_iam_policy_document" "ecs_service" {
 resource "aws_iam_role" "ecs_service" {
   count                = local.enable_ecs_service_role && var.service_role_arn == null ? 1 : 0
   name                 = format("%s-service-role", var.name)
-  assume_role_policy   = join("", data.aws_iam_policy_document.ecs_service.*.json)
+  assume_role_policy   = data.aws_iam_policy_document.ecs_service[0].json
   permissions_boundary = var.permissions_boundary == "" ? null : var.permissions_boundary
   tags                 = var.tags_common
 }
