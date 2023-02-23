@@ -68,9 +68,14 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_capacity_provider_desired_capacity"></a> [capacity\_provider\_desired\_capacity](#input\_capacity\_provider\_desired\_capacity) | Desired capacity for the capacity provider | `number` | `10` | no |
+| <a name="input_capacity_provider_maximum_scaling_step_size"></a> [capacity\_provider\_maximum\_scaling\_step\_size](#input\_capacity\_provider\_maximum\_scaling\_step\_size) | Maximum scaling step size for the capacity provider | `number` | `1000` | no |
+| <a name="input_capacity_provider_minimum_scaling_step_size"></a> [capacity\_provider\_minimum\_scaling\_step\_size](#input\_capacity\_provider\_minimum\_scaling\_step\_size) | Minimum scaling step size for the capacity provider | `number` | `1` | no |
 | <a name="input_desired_capacity"></a> [desired\_capacity](#input\_desired\_capacity) | Desired capacity of the cluster | `number` | `1` | no |
 | <a name="input_ec2_capacity_enabled"></a> [ec2\_capacity\_enabled](#input\_ec2\_capacity\_enabled) | Enable EC2 capacity | `bool` | `false` | no |
 | <a name="input_egress_rules"></a> [egress\_rules](#input\_egress\_rules) | Security group egress rules for the cluster EC2s | <pre>map(object({<br>    description     = string<br>    from_port       = number<br>    to_port         = number<br>    protocol        = string<br>    security_groups = list(string)<br>    cidr_blocks     = list(string)<br>  }))</pre> | n/a | yes |
+| <a name="input_enable_container_insights"></a> [enable\_container\_insights](#input\_enable\_container\_insights) | Enable container insights | `bool` | `false` | no |
+| <a name="input_enable_managed_scaling"></a> [enable\_managed\_scaling](#input\_enable\_managed\_scaling) | Enable managed scaling for the capacity provider | `bool` | `false` | no |
 | <a name="input_ingress_rules"></a> [ingress\_rules](#input\_ingress\_rules) | Security group ingress rules for the cluster EC2s | <pre>map(object({<br>    description     = string<br>    from_port       = number<br>    to_port         = number<br>    protocol        = string<br>    security_groups = list(string)<br>    cidr_blocks     = list(string)<br>  }))</pre> | n/a | yes |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | ECS Instance Type | `string` | `"t3.large"` | no |
 | <a name="input_key_name"></a> [key\_name](#input\_key\_name) | Key name to use for the cluster EC2s | `string` | `""` | no |
@@ -90,7 +95,7 @@ No modules.
 | <a name="output_cluster_arn"></a> [cluster\_arn](#output\_cluster\_arn) | n/a |
 | <a name="output_cluster_id"></a> [cluster\_id](#output\_cluster\_id) | n/a |
 | <a name="output_cluster_name"></a> [cluster\_name](#output\_cluster\_name) | n/a |
-| <a name="output_cluster_role_arn_ec2"></a> [cluster\_role\_arn\_ec2](#output\_cluster\_role\_arn\_ec2) | n/a |
+| <a name="output_ec2_cluster_role_arn"></a> [ec2\_cluster\_role\_arn](#output\_ec2\_cluster\_role\_arn) | n/a |
 | <a name="output_task_execution_role_arn"></a> [task\_execution\_role\_arn](#output\_task\_execution\_role\_arn) | n/a |
 <!-- END_TF_DOCS -->
 
