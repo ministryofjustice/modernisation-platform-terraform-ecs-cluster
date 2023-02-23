@@ -111,7 +111,7 @@ resource "aws_ecs_service" "default" {
   platform_version                   = var.launch_type == "FARGATE" ? var.platform_version : null
   scheduling_strategy                = var.launch_type == "FARGATE" ? "REPLICA" : var.scheduling_strategy
   enable_ecs_managed_tags            = var.enable_ecs_managed_tags
-  iam_role                           = local.enable_ecs_service_role ? coalesce(var.service_role_arn, join("", aws_iam_role.ecs_service.*.arn)) : null
+  iam_role                           = local.enable_ecs_service_role ? coalesce(var.service_role_arn, aws_iam_role.ecs_service.[0].arn) : null
   wait_for_steady_state              = var.wait_for_steady_state
   force_new_deployment               = var.force_new_deployment
   enable_execute_command             = var.exec_enabled
