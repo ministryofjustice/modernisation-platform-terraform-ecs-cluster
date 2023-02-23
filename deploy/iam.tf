@@ -20,7 +20,7 @@ resource "aws_iam_role" "ecs_task" {
   count = local.create_task_role ? 1 : 0
 
   name                 = format("%s-task-role", var.name)
-  assume_role_policy   = join("", data.aws_iam_policy_document.ecs_task.*.json)
+  assume_role_policy   = data.aws_iam_policy_document.ecs_task[0].json
   permissions_boundary = var.permissions_boundary == "" ? null : var.permissions_boundary
   tags                 = var.tags_common
 }
