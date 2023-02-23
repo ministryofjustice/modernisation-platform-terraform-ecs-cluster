@@ -12,7 +12,7 @@ resource "aws_ecs_task_definition" "this" {
   cpu                      = var.task_cpu
   memory                   = var.task_memory
   execution_role_arn       = var.task_exec_role_arn
-  task_role_arn            = length(local.task_role_arn) > 0 ? local.task_role_arn : join("", aws_iam_role.ecs_task.*.arn)
+  task_role_arn            = length(local.task_role_arn) > 0 ? local.task_role_arn : aws_iam_role.ecs_task.[0].arn
 
   dynamic "proxy_configuration" {
     for_each = var.proxy_configuration == null ? [] : [var.proxy_configuration]
