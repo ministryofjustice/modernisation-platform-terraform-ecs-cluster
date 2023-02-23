@@ -7,13 +7,13 @@ resource "aws_ecs_cluster" "this" {
 }
 
 resource "aws_ecs_cluster_capacity_providers" "this" {
-  count              = var.ec2_capacity_enabled == true ? 1 : 0
+  count              = var.ec2_capacity_enabled ? 1 : 0
   cluster_name       = aws_ecs_cluster.this.name
   capacity_providers = [aws_ecs_capacity_provider.this[0].name]
 }
 
 resource "aws_ecs_capacity_provider" "this" {
-  count = var.ec2_capacity_enabled == true ? 1 : 0
+  count = var.ec2_capacity_enabled ? 1 : 0
   name  = "${var.name}-capacity-provider"
 
   auto_scaling_group_provider {
