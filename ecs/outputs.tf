@@ -10,7 +10,7 @@ output "cluster_name" {
   value = aws_ecs_cluster.this.name
 }
 
-output "cluster_role_arn_ec2" {
+output "ec2_cluster_role_arn" {
   value = var.ec2_capacity_enabled ? aws_iam_role.ecs_ec2[0].arn : null
 }
 
