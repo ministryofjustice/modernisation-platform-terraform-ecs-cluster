@@ -77,7 +77,9 @@ No resources.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_ecs_cluster_arn"></a> [ecs\_cluster\_arn](#output\_ecs\_cluster\_arn) | n/a |
 <!-- END_TF_DOCS -->
 
 <!-- Uncomment the below if this module uses tags -->
