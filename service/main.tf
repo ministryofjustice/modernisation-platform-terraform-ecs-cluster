@@ -38,5 +38,4 @@ module "ecs_alb_service_task" {
   deployment_controller_type = "ECS"
   propagate_tags             = "SERVICE"
   context                    = module.this.context
-
 }
