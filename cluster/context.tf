@@ -20,6 +20,7 @@ variable "context" {
     environment         = null
     name                = null
     delimiter           = null
+    stage               = null
     attributes          = []
     tags                = {}
     additional_tag_map  = {}
