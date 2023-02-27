@@ -31,6 +31,12 @@ module "ecs_alb_service_task" {
 
   proxy_configuration = var.proxy_configuration
 
+  task_exec_role_arn    = var.task_exec_role_arn != "" ? [var.task_exec_role_arn] : []
+  task_exec_policy_arns = var.task_exec_policy_arns
+  task_role_arn         = var.task_role_arn != "" ? [var.task_role_arn] : []
+  task_policy_arns      = var.task_policy_arns
+  service_role_arn      = var.service_role_arn
+
   ecs_load_balancers         = var.ecs_load_balancers
   use_alb_security_group     = true
   force_new_deployment       = true
