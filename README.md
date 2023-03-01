@@ -8,7 +8,12 @@ This repository provides 2 Terraform Modules:
 
 `terraform-docs` for the modules can be found in their respective readme's.
 
-The aim is to provide a reusable framework to deploy ECS and it's associated services in a way that integrates well with the rest of the modernisation platfrom environments.
+The aim is to provide a reusable framework to deploy ECS and it's associated services in a way that integrates well with the rest of the modernisation platform environments.
+
+Whilst these modules are flexible, they have been designed to work together. The use case behind them is that the services/tasks/containers (using the `service` module) can be deployed independently of the cluster. This means that the ECS Cluster (deployed using the `cluster` module) can be provisioned at environment build time and services/tasks/containers can be provisioned in a seperate process. Importantly, this unlinks the state of the two so that services/tasks/containers can be updated without the need to touch the platform or environment.
+
+<img src="https://github.com/ministryofjustice/terraform-ecs/blob/docs/simple.png" width="450" />
+
 
 ### Cluster
 This module is used to deploy an ECS cluster. It provides flexibility in capacity by allowing EC2 Auto Scale Group Capacity providers or Fargate with/without SPOT support.
@@ -17,18 +22,12 @@ This module is used to deploy an ECS cluster. It provides flexibility in capacit
 
 This module is used to deploy an ECS Service and/or task definitions onto an ECS Cluster.
 
-## Strategy
-
-Whilst these modules are flexible, they have been designed to work together. The use case behind them is that the services/tasks/containers (using the `service` module) can be deployed independently of the cluster. This means that the ECS Cluster (deployed using the `cluster` module) can be provisioned at environment build time and services/tasks/containers can be provisioned in a seperate process. Importantly, this unlinks the state of the two so that services/tasks/containers can be updated without the need to touch the platform or environment.
-
-<img src="https://github.com/ministryofjustice/terraform-ecs/blob/docs/simple.png" width="450" />
-
 ## Examples
 
 The following example shows how to utilise both modules in unison. For examples of the modules individually, please see the readme's linked in [section 1](#terraform-ecs)
 
 
-# References/Context
+## References/Context
 
 These modules for all intents and purposes are wrappers around the [cloudposse modules](https://cloudposse.com/) linked below.
 
