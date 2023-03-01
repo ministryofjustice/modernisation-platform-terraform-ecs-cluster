@@ -1,5 +1,6 @@
 # terraform-ecs
 
+## Modules
 This repository provides 2 Terraform Modules:
 
 - [`cluster`](/cluster/)
@@ -9,10 +10,10 @@ This repository provides 2 Terraform Modules:
 
 The aim is to provide a reusable framework to deploy ECS and it's associated services in a way that integrates well with the rest of the modernisation platfrom environments.
 
-## Cluster
+### Cluster
 This module is used to deploy an ECS cluster. It provides flexibility in capacity by allowing EC2 Auto Scale Group Capacity providers or Fargate with/without SPOT support.
 
-## Service
+### Service
 
 This module is used to deploy an ECS Service and/or task definitions onto an ECS Cluster.
 
