@@ -1,5 +1,5 @@
 <!-- Rename the heading when using this template -->
-# modernisation-platform-terraform-ecs-new
+# modernisation-platform-terraform-ecs//cluster
 
 
 <!-- Change the URL in the release badge to point towards your new repository -->
