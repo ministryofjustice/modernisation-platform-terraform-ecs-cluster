@@ -36,3 +36,6 @@ These modules for all intents and purposes are wrappers around the [cloudposse m
 - https://github.com/cloudposse/terraform-aws-ecs-container-definition
 
 - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster
+
+## Looking for issues?
+If you're looking to raise an issue with this module, please create a new issue in the [issue tracker.](https://github.com/ministryofjustice/terraform-ecs/issues).
