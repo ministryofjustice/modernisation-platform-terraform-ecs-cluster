@@ -15,10 +15,10 @@ Whilst these modules are flexible, they have been designed to work together. The
 <img src="https://github.com/ministryofjustice/terraform-ecs/blob/docs/simple.png" width="450" />
 
 
-### Cluster
+### Cluster Module - [`link`](/cluster/)
 This module is used to deploy an ECS cluster. It provides flexibility in capacity by allowing EC2 Auto Scale Group Capacity providers or Fargate with/without SPOT support.
 
-### Service
+### Service - [`link`](/service/)
 
 This module is used to deploy an ECS Service and/or task definitions onto an ECS Cluster.
 
