@@ -19,6 +19,7 @@ jobs:
         uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
         with:
           fetch-depth: 0
+          set-safe-directory: "*"
       - name: Run Analysis
         uses: ministryofjustice/github-actions/terraform-static-analysis@9ec101cf5870762f327194337d3d88bd329c157c # v11
         env:
