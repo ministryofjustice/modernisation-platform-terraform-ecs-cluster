@@ -44,5 +44,6 @@ module "ecs_alb_service_task" {
   redeploy_on_apply          = true
   deployment_controller_type = "ECS"
   propagate_tags             = "SERVICE"
+  security_group_enabled     = false
   context                    = module.this.context
 }
