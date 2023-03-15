@@ -1,0 +1,19 @@
+name: "Format Code: ensure code formatting guidelines are met"
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions: {}
+
+jobs:
+  format-code:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+      - uses: ministryofjustice/github-actions/code-formatter@d9a5f75c10cd50abd5f312ab9f4bab5826e4fedf # v11
+        with:
+            ignore-files: "README.md"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
