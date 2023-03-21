@@ -35,8 +35,10 @@ These modules for all intents and purposes are wrappers around the [cloudposse m
 
 - https://github.com/cloudposse/terraform-aws-ecs-cluster
 - https://github.com/cloudposse/terraform-aws-ecs-alb-service-task
-- https://github.com/cloudposse/terraform-aws-ecs-container-definition
+- https://github.com/cloudposse/terraform-aws-ecs-container-definitions
 
+
+*Reference to provider native ECS Cluster resource*
 - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster
 
 ## Looking for issues?
