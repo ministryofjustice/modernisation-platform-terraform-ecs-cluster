@@ -41,33 +41,5 @@ These modules for all intents and purposes are wrappers around the [cloudposse m
 *Reference to provider native ECS Cluster resource*
 - https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster
 
-
-
-<!-- BEGIN_TF_DOCS -->
-## Requirements
-
-No requirements.
-
-## Providers
-
-No providers.
-
-## Modules
-
-No modules.
-
-## Resources
-
-No resources.
-
-## Inputs
-
-No inputs.
-
-## Outputs
-
-No outputs.
-<!-- END_TF_DOCS -->
-
 ## Looking for issues?
 If you're looking to raise an issue with this module, please create a new issue in the [issue tracker.](https://github.com/ministryofjustice/terraform-ecs/issues).
