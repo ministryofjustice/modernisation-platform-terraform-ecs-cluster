@@ -46,10 +46,7 @@ These modules for all intents and purposes are wrappers around the [cloudposse m
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-| Name                                                                      | Version  |
-| ------------------------------------------------------------------------- | -------- |
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.1 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws)                   | ~> 4.0   |
+No requirements.
 
 ## Providers
 
@@ -65,10 +62,7 @@ No resources.
 
 ## Inputs
 
-| Name                                                                                 | Description                             | Type          | Default | Required |
-| ------------------------------------------------------------------------------------ | --------------------------------------- | ------------- | ------- | :------: |
-| <a name="input_application_name"></a> [application\_name](#input\_application\_name) | Name of application                     | `string`      | n/a     |   yes    |
-| <a name="input_tags"></a> [tags](#input\_tags)                                       | Common tags to be used by all resources | `map(string)` | n/a     |   yes    |
+No inputs.
 
 ## Outputs
 
