@@ -24,7 +24,7 @@ module "ecs-cluster" {
 }
 ```
 
-See the [examples/](examples/) folder for more information.
+<!-- See the [examples/](examples/) folder for more information. -->
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
