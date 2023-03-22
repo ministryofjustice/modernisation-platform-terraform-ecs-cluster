@@ -1,3 +1,57 @@
+<!-- Rename the heading when using this template -->
+# modernisation-platform-terraform-ecs//service
+
+
+<!-- Change the URL in the release badge to point towards your new repository -->
+[![Releases](https://img.shields.io/github/release/ministryofjustice/terraform-ecs/all.svg?style=flat-square)](https://github.com/ministryofjustice/terraform-ecs/releases)
+
+<!-- Add a short description of the module -->
+This module is used to deploy an ECS Service and/or task definitions onto an ECS Cluster.
+## Usage example
+
+<!-- Describe how to use the module -->
+
+<!-- Change the source URL below to point towards your new repository -->
+```hcl
+module "service" {
+  source                    = "git::https://github.com/ministryofjustice/modernisation-platform-terraform-ecs-cluster//service"
+  
+  container_definition_json = module.container.json_map_encoded_list
+  ecs_cluster_arn           = "arn:aws:ecs:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:cluster/${var.environment}-${local.app_name}"
+  name                      = local.app_name
+  vpc_id                    = var.vpc_id
+
+  launch_type  = "FARGATE"
+  network_mode = "awsvpc"
+
+  task_cpu    = "1024"
+  task_memory = "3072"
+
+  task_exec_role_arn = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/${local.app_name}-ecs-task-execution-role"
+
+  environment = var.environment
+  ecs_load_balancers = [
+    {
+      target_group_arn = "arn:aws:elasticloadbalancing:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:targetgroup/tg-name/xxxxxxxxxx"
+      container_name   = local.app_name
+      container_port   = 5000
+    }
+  ]
+
+  security_group_ids    = ["sg-xxxxxxxxxxxxxx"]
+  alb_security_group_id = "sg-xxxxxxxxxxxxxx"
+
+  subnet_ids = [
+    data.aws_subnet.private_subnets_a.id,
+    data.aws_subnet.private_subnets_b.id,
+    data.aws_subnet.private_subnets_c.id
+  ]
+
+  ignore_changes_task_definition = false
+}
+```
+
+<!-- See the [examples/](examples/) folder for more information. -->
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
