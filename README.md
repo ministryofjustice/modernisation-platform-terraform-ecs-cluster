@@ -14,7 +14,7 @@ The aim is to provide a reusable framework to deploy ECS and it's associated ser
 
 Whilst these modules are flexible, they have been designed to work together. The use case behind them is that the services/tasks/containers (using the `service` module) can be deployed independently of the cluster. This means that the ECS Cluster (deployed using the `cluster` module) can be provisioned at environment build time and services/tasks/containers can be provisioned in a seperate process. Importantly, this unlinks the state of the two so that services/tasks/containers can be updated without the need to touch the platform or environment.
 
-<img src="https://github.com/ministryofjustice/modernisation-platform-terraform-ecs-cluster/blob/docs/simple.png" width="450" />
+<img src="/docs/simple.png" width="450" />
 
 
 ### Cluster Module - [`link`](/cluster/)
