@@ -26,8 +26,7 @@ This module is used to deploy an ECS Service and/or task definitions onto an ECS
 
 ## Examples
 
-The following example shows how to utilise both modules in unison. For examples of the modules individually, please see the readme's linked in [section 1](#terraform-ecs)
-
+ For examples of the modules individually, please see the readme's linked in [section 1](#terraform-ecs)
 
 ## References/Context
 
