@@ -6,8 +6,8 @@ on:
     branches:
       - main
     paths:
-      - '**.tf'
-      - '.github/workflows/terraform-static-analysis.yml'
+      - "**.tf"
+      - ".github/workflows/terraform-static-analysis.yml"
 
 permissions:
   contents: read
@@ -20,18 +20,18 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name != 'workflow_dispatch'
     steps:
-    - name: Checkout
-      uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3.4.0
-      with:
-        fetch-depth: 0
-    - name: Run Analysis
-      uses: ministryofjustice/github-actions/terraform-static-analysis@d9a5f75c10cd50abd5f312ab9f4bab5826e4fedf # v11
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        scan_type: single
-        tfsec_exclude: AWS089, AWS099, AWS009, AWS097, AWS018
-        checkov_exclude: CKV_GIT_1
+      - name: Checkout
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        with:
+          fetch-depth: 0
+      - name: Run Analysis
+        uses: ministryofjustice/github-actions/terraform-static-analysis@5abe121df74f6cf546fba4a3fc2ab1f960ed43ab
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          scan_type: single
+          tfsec_exclude: AWS089, AWS099, AWS009, AWS097, AWS018
+          checkov_exclude: CKV_GIT_1
 
   terraform-static-analysis-full-scan:
     permissions:
@@ -40,15 +40,15 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch'
     steps:
-    - name: Checkout
-      uses: actions/checkout@24cb9080177205b6e8c946b17badbe402adc938f # v3.4.0
-      with:
-        fetch-depth: 0
-    - name: Run Analysis
-      uses: ministryofjustice/github-actions/terraform-static-analysis@d9a5f75c10cd50abd5f312ab9f4bab5826e4fedf # v11
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        scan_type: full
-        tfsec_exclude: AWS089, AWS099, AWS009, AWS097, AWS018
-        checkov_exclude: CKV_GIT_1
+      - name: Checkout
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        with:
+          fetch-depth: 0
+      - name: Run Analysis
+        uses: ministryofjustice/github-actions/terraform-static-analysis@5abe121df74f6cf546fba4a3fc2ab1f960ed43ab
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          scan_type: full
+          tfsec_exclude: AWS089, AWS099, AWS009, AWS097, AWS018
+          checkov_exclude: CKV_GIT_1

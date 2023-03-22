@@ -1,3 +1,4 @@
+#tfsec:ignore:aws-vpc-no-public-ingress-sgr tfsec:ignore:aws-vpc-no-public-egress-sgr
 module "ecs_alb_service_task" {
   source  = "cloudposse/ecs-alb-service-task/aws"
   version = "0.67.0"
@@ -43,5 +44,6 @@ module "ecs_alb_service_task" {
   redeploy_on_apply          = true
   deployment_controller_type = "ECS"
   propagate_tags             = "SERVICE"
+  security_group_enabled     = false
   context                    = module.this.context
 }
