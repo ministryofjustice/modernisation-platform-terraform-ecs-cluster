@@ -17,10 +17,10 @@ Whilst these modules are flexible, they have been designed to work together. The
 <img src="/simple.png" width="450" />
 
 
-### Cluster Module - [`link`](/cluster/)
+## [Cluster Module](/cluster/)
 This module is used to deploy an ECS cluster. It provides flexibility in capacity by allowing EC2 Auto Scale Group Capacity providers or Fargate with/without SPOT support.
 
-[### Service](/service/)
+## [Service Module](/service/)
 
 This module is used to deploy an ECS Service and/or task definitions onto an ECS Cluster.
 
