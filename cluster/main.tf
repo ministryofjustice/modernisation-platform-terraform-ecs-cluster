@@ -18,5 +18,6 @@ module "ecs_cluster" {
   capacity_providers_fargate      = true
   capacity_providers_fargate_spot = true
   capacity_providers_ec2          = local.ec2_capacity_provider
+  context                         = module.this.context
 }
 
