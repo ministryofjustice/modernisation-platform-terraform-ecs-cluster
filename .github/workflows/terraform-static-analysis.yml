@@ -6,8 +6,8 @@ on:
     branches:
       - main
     paths:
-      - '**.tf'
-      - '.github/workflows/terraform-static-analysis.yml'
+      - "**.tf"
+      - ".github/workflows/terraform-static-analysis.yml"
 
 permissions:
   contents: read
