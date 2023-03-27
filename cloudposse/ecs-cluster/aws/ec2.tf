@@ -28,7 +28,7 @@ EOT
 
 module "ecs_labels" {
   for_each = local.ec2_capacity_providers
-  source   = "../../label/null"
+  source   = "../../../cloudposse/label/null"
 
   enabled    = var.enabled
   attributes = concat(module.this.context.attributes, [each.key])
@@ -39,7 +39,7 @@ module "ecs_labels" {
 module "autoscale_group" {
   for_each = local.ec2_capacity_providers
 
-  source = "../../ec2-autoscale-group/aws"
+  source = "../../../cloudposse/ec2-autoscale-group/aws"
 
   context = module.ecs_labels[each.key].context
 

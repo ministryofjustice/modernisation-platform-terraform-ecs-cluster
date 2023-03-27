@@ -1,7 +1,6 @@
 #tfsec:ignore:aws-vpc-no-public-ingress-sgr tfsec:ignore:aws-vpc-no-public-egress-sgr
 module "ecs_alb_service_task" {
-  source  = "cloudposse/ecs-alb-service-task/aws"
-  version = "0.67.0"
+  source = "../cloudposse/ecs-alb-service-task/aws"
 
   alb_security_group             = var.alb_security_group_id
   container_definition_json      = var.container_definition_json
