@@ -21,7 +21,7 @@
 #
 
 module "this" {
-  source = "../../label/null"
+  source = "../../../cloudposse/label/null"
 
   enabled             = var.enabled
   namespace           = var.namespace
