@@ -2,6 +2,7 @@
 module "ecs_alb_service_task" {
   #checkov:skip=CKV_AWS_249:Roles are passed in
   #checkov:skip=CKV_AWS_97:Transit encryption is optional and can be enabled by passing in configuration to the cloudposse module
+  #checkov:skip=CKV_AWS_111:Details of LB and TGs are unknown until the app resources are created
 
   source = "../cloudposse/ecs-alb-service-task/aws"
 
