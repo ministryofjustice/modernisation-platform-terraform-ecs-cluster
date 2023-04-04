@@ -1,6 +1,5 @@
 module "this" {
-  source = "./cloudposse/label/null"
-
+  source = "../cloudposse/label/null"
   enabled     = true
   namespace   = "hmpps"
   environment = var.environment

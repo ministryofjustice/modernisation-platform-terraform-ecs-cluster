@@ -12,7 +12,7 @@ locals {
 }
 
 module "ecs_cluster" {
-  source = "./cloudposse/ecs-cluster/aws"
+  source = "../cloudposse/ecs-cluster/aws"
 
   container_insights_enabled      = true
   capacity_providers_fargate      = true
