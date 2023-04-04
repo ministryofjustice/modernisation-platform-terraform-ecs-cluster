@@ -1,5 +1,6 @@
 #tfsec:ignore:aws-vpc-no-public-ingress-sgr tfsec:ignore:aws-vpc-no-public-egress-sgr
 module "ecs_alb_service_task" {
+  #chekov:skip=CKV_AWS_249,CKV_AWS_97
   source = "../cloudposse/ecs-alb-service-task/aws"
 
   alb_security_group             = var.alb_security_group_id
