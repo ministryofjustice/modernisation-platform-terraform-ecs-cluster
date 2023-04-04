@@ -12,11 +12,13 @@ locals {
 }
 
 module "ecs_cluster" {
+  #checkov:skip=CKV_AWS_79:Cloudposse module allows configuration that ensures passing this check
   source = "../cloudposse/ecs-cluster/aws"
 
   container_insights_enabled      = true
   capacity_providers_fargate      = true
   capacity_providers_fargate_spot = true
+  metadata_http_tokens_required   = true
   capacity_providers_ec2          = local.ec2_capacity_provider
   context                         = module.this.context
 }
