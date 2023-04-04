@@ -118,5 +118,5 @@ No resources.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_service_arn"></a> [service\_arn](#output\_service\_arn) | n/a |
+| <a name="output_service_arn"></a> [service\_arn](#output\_service\_arn) | The ARN for the ECS Service |
 <!-- END_TF_DOCS -->
