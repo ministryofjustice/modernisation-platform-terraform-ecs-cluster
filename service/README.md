@@ -57,7 +57,7 @@ module "service" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.1 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >=4.0.0 |
 
 ## Providers
@@ -68,8 +68,8 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_ecs_alb_service_task"></a> [ecs\_alb\_service\_task](#module\_ecs\_alb\_service\_task) | cloudposse/ecs-alb-service-task/aws | 0.67.0 |
-| <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |
+| <a name="module_ecs_alb_service_task"></a> [ecs\_alb\_service\_task](#module\_ecs\_alb\_service\_task) | ../cloudposse/ecs-alb-service-task/aws | n/a |
+| <a name="module_this"></a> [this](#module\_this) | ../cloudposse/label/null | n/a |
 
 ## Resources
 
@@ -116,5 +116,7 @@ No resources.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_service_arn"></a> [service\_arn](#output\_service\_arn) | n/a |
 <!-- END_TF_DOCS -->
