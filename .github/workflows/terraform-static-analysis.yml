@@ -15,12 +15,7 @@ permissions:
 jobs:
   terraform-static-analysis:
     permissions:
-      actions: read
-      checks: read
-      contents: write
-      deployments: read
-      pull-requests: read
-      statuses: read
+      pull-requests: write
     name: Terraform Static Analysis
     runs-on: ubuntu-latest
     if: github.event_name != 'workflow_dispatch'
@@ -40,12 +35,7 @@ jobs:
 
   terraform-static-analysis-full-scan:
     permissions:
-      actions: read
-      checks: read
-      contents: write
-      deployments: read
-      pull-requests: read
-      statuses: read
+      pull-requests: write
     name: Terraform Static Analysis - scan all directories
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch'
