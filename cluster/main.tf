@@ -1,24 +1,23 @@
 locals {
   ec2_capacity_provider = var.enable_ec2_capacity_provider ? {
     ec2_default = {
-      instance_type               = var.ec2_capacity_instance_type
-      security_group_ids          = [var.ec2_capacity_security_group_id]
-      subnet_ids                  = var.ec2_subnet_ids
-      associate_public_ip_address = false
-      min_size                    = var.ec2_capacity_min_size
-      max_size                    = var.ec2_capacity_max_size
+      instance_type                 = var.ec2_capacity_instance_type
+      security_group_ids            = [var.ec2_capacity_security_group_id]
+      subnet_ids                    = var.ec2_subnet_ids
+      associate_public_ip_address   = false
+      min_size                      = var.ec2_capacity_min_size
+      max_size                      = var.ec2_capacity_max_size
+      metadata_http_tokens_required = var.metadata_http_tokens_required
     }
   } : {}
 }
 
 module "ecs_cluster" {
-  #checkov:skip=CKV_AWS_79:Cloudposse module allows configuration that ensures passing this check
   source = "../cloudposse/ecs-cluster/aws"
 
   container_insights_enabled      = true
   capacity_providers_fargate      = true
   capacity_providers_fargate_spot = true
-  metadata_http_tokens_required   = true
   capacity_providers_ec2          = local.ec2_capacity_provider
   context                         = module.this.context
 }

@@ -56,3 +56,9 @@ variable "ec2_capacity_max_size" {
   default     = 1
   description = "EC2 capacity provider max size"
 }
+
+variable "metadata_http_tokens_required" {
+  type        = bool
+  default     = true
+  description = "Whether or not to require metadata tokens. Valid values are `true` or `false`"
+}
