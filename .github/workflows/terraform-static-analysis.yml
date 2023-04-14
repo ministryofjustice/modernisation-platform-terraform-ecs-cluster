@@ -30,7 +30,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         scan_type: single
-        tfsec_exclude: AWS089, AWS099, AWS009, AWS097, AWS018
+        tfsec_exclude: aws-cloudwatch-log-group-customer-key, aws-iam-no-policy-wildcards, aws-vpc-no-public-egress-sgr, aws-iam-block-kms-policy-wildcard, aws-vpc-add-description-to-security-group
         checkov_exclude: CKV_GIT_1
 
   terraform-static-analysis-full-scan:
@@ -50,5 +50,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         scan_type: full
-        tfsec_exclude: AWS089, AWS099, AWS009, AWS097, AWS018
+        tfsec_exclude: aws-cloudwatch-log-group-customer-key, aws-iam-no-policy-wildcards, aws-vpc-no-public-egress-sgr, aws-iam-block-kms-policy-wildcard, aws-vpc-add-description-to-security-group
         checkov_exclude: CKV_GIT_1
