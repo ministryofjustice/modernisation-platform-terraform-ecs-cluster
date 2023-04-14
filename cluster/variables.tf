@@ -62,3 +62,9 @@ variable "metadata_http_tokens_required" {
   default     = true
   description = "Whether or not to require metadata tokens. Valid values are `true` or `false`"
 }
+
+variable "metadata_http_endpoint_enabled" {
+  type        = bool
+  default     = true
+  description = "Whether or not to enable metadata HTTP endpoint. Valid values are `true` or `false`"
+}
