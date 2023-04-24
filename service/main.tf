@@ -1,9 +1,5 @@
 #tfsec:ignore:aws-vpc-no-public-ingress-sgr tfsec:ignore:aws-vpc-no-public-egress-sgr
 module "ecs_alb_service_task" {
-  #checkov:skip=CKV_AWS_249:Roles are passed into the module
-  #checkov:skip=CKV_AWS_97:Transit encryption is optional and can be enabled by passing in configuration volume/efs volume configuration block `efs_volumes = var.efs_volumes`
-  #checkov:skip=CKV_AWS_111:Details of LB and TGs are unknown until the app resources are created
-
   source = "../cloudposse/ecs-alb-service-task/aws"
 
   alb_security_group             = var.alb_security_group_id
