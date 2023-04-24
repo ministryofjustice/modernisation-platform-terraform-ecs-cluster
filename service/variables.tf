@@ -120,7 +120,7 @@ variable "efs_volumes" {
     efs_volume_configuration = list(object({
       file_system_id          = string
       root_directory          = string
-      transit_encryption      = string
+      transit_encryption      = optional(string, "ENABLED")
       transit_encryption_port = string
       authorization_config = list(object({
         access_point_id = string

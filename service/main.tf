@@ -1,5 +1,9 @@
 #tfsec:ignore:aws-vpc-no-public-ingress-sgr tfsec:ignore:aws-vpc-no-public-egress-sgr
 module "ecs_alb_service_task" {
+  #checkov:skip=CKV_AWS_249: Roles are passed in as variables
+  #checkov:skip=CKV_AWS_97: Transit encryption is enabled by default in the default value for `var.efs_volumes`
+  #checkov:skip=CKV_AWS_111: Details of LB and TGs are unknown until the app resources are created and the policy used doesn't contain any 'resource exposure' actions as per https://cloudsplaining.readthedocs.io/en/latest/glossary/resource-exposure/
+
   source = "../cloudposse/ecs-alb-service-task/aws"
 
   alb_security_group             = var.alb_security_group_id
