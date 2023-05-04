@@ -43,7 +43,7 @@ module "ecs_alb_service_task" {
 
   ecs_load_balancers         = var.ecs_load_balancers
   use_alb_security_group     = true
-  force_new_deployment       = false
+  force_new_deployment       = true
   redeploy_on_apply          = true
   deployment_controller_type = "ECS"
   propagate_tags             = "SERVICE"
