@@ -21,6 +21,18 @@ variable "tags" {
     EOT
 }
 
+variable "redeploy_on_apply" {
+  type        = bool
+  description = "Updates the service to the latest task definition on each apply"
+  default     = false
+}
+
+variable "force_new_deployment" {
+  type        = bool
+  description = "Enable to force a new task deployment of the service."
+  default     = false
+}
+
 variable "vpc_id" {
   type        = string
   description = "The VPC ID where resources are created"
