@@ -41,6 +41,8 @@ module "ecs_alb_service_task" {
   task_policy_arns      = var.task_policy_arns
   service_role_arn      = var.service_role_arn
 
+  exec_enabled = var.exec_enabled
+
   ecs_load_balancers         = var.ecs_load_balancers
   use_alb_security_group     = true
   force_new_deployment       = var.force_new_deployment
