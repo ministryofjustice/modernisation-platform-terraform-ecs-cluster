@@ -28,7 +28,8 @@ locals {
     { "source-code" = "https://github.com/ministryofjustice/modernisation-platform" }
   )
 
-  environment = trimprefix(terraform.workspace, "${var.networking[0].application}-")
+  #environment = trimprefix(terraform.workspace, "${var.networking[0].application}-")
+  environment = "test"
   vpc_name    = var.networking[0].business-unit
   subnet_set  = var.networking[0].set
 

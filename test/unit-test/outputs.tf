@@ -1,3 +1,3 @@
-output "example" {
-  value = module.module_test.name
+output "cluster_arn" {
+  value = module.unit_test.ecs_cluster_arn
 }

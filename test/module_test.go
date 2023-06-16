@@ -18,7 +18,7 @@ func TestModule(t *testing.T) {
 
 	terraform.InitAndApply(t, terraformOptions)
 
-	exampleName := terraform.Output(t, terraformOptions, "example_name")
+	exampleArn := terraform.Output(t, terraformOptions, "cluster_arn")
 
-	assert.Regexp(t, regexp.MustCompile(`^example-name*`), exampleName)
+	assert.Regexp(t, regexp.MustCompile(`^arn:aws:ecs:eu-west-2:[0-9]{12}:cluster/hmpps-test-unit-test`), exampleArn)
 }
