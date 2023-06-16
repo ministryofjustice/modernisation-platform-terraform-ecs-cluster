@@ -18,5 +18,5 @@ module "unit_test" {
 
 resource "aws_security_group" "unit_test" {
   name_prefix = "ecs-cluster-unit-test"
-  vpc_id = data.aws_vpc.shared.id
+  vpc_id      = data.aws_vpc.shared.id
 }
