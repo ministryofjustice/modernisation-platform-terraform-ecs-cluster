@@ -3,6 +3,7 @@ module "ecs_alb_service_task" {
   #checkov:skip=CKV_AWS_249: Roles are passed in as variables
   #checkov:skip=CKV_AWS_97: Transit encryption is enabled by default in the default value for `var.efs_volumes`
   #checkov:skip=CKV_AWS_111: Details of LB and TGs are unknown until the app resources are created and the policy used doesn't contain any 'resource exposure' actions as per https://cloudsplaining.readthedocs.io/en/latest/glossary/resource-exposure/
+  #checkov:skip=CKV_AWS_356: Module provided policy, which has not changed since last release. This check is new to Checkov.
 
   source = "../cloudposse/ecs-alb-service-task/aws"
 
@@ -40,6 +41,8 @@ module "ecs_alb_service_task" {
   task_role_arn         = var.task_role_arn != "" ? [var.task_role_arn] : []
   task_policy_arns      = var.task_policy_arns
   service_role_arn      = var.service_role_arn
+
+  exec_enabled = var.exec_enabled
 
   ecs_load_balancers         = var.ecs_load_balancers
   use_alb_security_group     = true

@@ -33,6 +33,12 @@ variable "force_new_deployment" {
   default     = false
 }
 
+variable "exec_enabled" {
+  type        = bool
+  description = "Specifies whether to enable Amazon ECS Exec for the tasks within the service"
+  default     = false
+}
+
 variable "vpc_id" {
   type        = string
   description = "The VPC ID where resources are created"
