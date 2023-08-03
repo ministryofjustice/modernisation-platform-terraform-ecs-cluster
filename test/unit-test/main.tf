@@ -1,6 +1,6 @@
 module "unit_test" {
   #checkov:skip=CKV_TF_1:Module registry does not support commit hashes for versions
-  source = "github.com/ministryofjustice/modernisation-platform-terraform-ecs-cluster//cluster" 
+  source = "github.com/ministryofjustice/modernisation-platform-terraform-ecs-cluster//cluster"
 
   ec2_capacity_instance_type     = "t3.micro"
   ec2_capacity_max_size          = "1"
