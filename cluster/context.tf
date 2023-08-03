@@ -2,7 +2,7 @@ module "this" {
   source = "../cloudposse/label/null"
 
   enabled     = true
-  namespace   = "hmpps"
+  namespace   = var.namespace
   environment = var.environment
   name        = var.name
   tags        = var.tags

@@ -3,6 +3,11 @@ variable "environment" {
   description = "ID element. Usually used for region e.g. 'uw2', 'us-west-2', OR role 'prod', 'staging', 'dev', 'UAT'"
 }
 
+variable "namespace" {
+  type        = string
+  description = "ID element. Usually used for application name"
+}
+
 variable "name" {
   type        = string
   description = <<-EOT
