@@ -14,7 +14,7 @@ variable "context" {
   type = any
   default = {
     enabled             = true
-    namespace           = "hmpps"
+    namespace           = null
     tenant              = null
     environment         = null
     name                = null
