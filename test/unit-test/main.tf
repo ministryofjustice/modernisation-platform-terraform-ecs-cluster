@@ -12,6 +12,7 @@ module "unit_test" {
   ]
   environment = local.environment
   name        = "unit-test"
+  namespace   = "unit-test-namespace"
 
   tags = local.tags
 }
