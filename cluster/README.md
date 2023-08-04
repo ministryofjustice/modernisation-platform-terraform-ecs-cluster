@@ -19,6 +19,7 @@ module "ecs-cluster" {
 
   environment = local.environment
   name        = format("%s-new", local.application_name)
+  namespace   = "Namespace"
 
   tags = local.tags
 }
