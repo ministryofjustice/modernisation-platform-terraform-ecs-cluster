@@ -52,4 +52,6 @@ module "ecs_alb_service_task" {
   propagate_tags             = "SERVICE"
   security_group_enabled     = false
   context                    = module.this.context
+
+  service_connect_configurations = var.service_connect_configurations
 }

@@ -279,3 +279,32 @@ variable "service_role_arn" {
   description = "ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the awsvpc network mode. If using awsvpc network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here."
   default     = null
 }
+
+variable "service_connect_configurations" {
+  type = list(object({
+    enabled   = bool
+    namespace = optional(string, null)
+    log_configuration = optional(object({
+      log_driver = string
+      options    = optional(map(string), null)
+      secret_option = optional(list(object({
+        name       = string
+        value_from = string
+      })), [])
+    }), null)
+    service = optional(list(object({
+      client_alias = list(object({
+        dns_name = string
+        port     = number
+      }))
+      discovery_name        = optional(string, null)
+      ingress_port_override = optional(number, null)
+      port_name             = string
+    })), [])
+  }))
+  description = <<-EOT
+    The list of Service Connect configurations.
+    See `service_connect_configuration` docs https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service#service_connect_configuration
+    EOT
+  default     = []
+}

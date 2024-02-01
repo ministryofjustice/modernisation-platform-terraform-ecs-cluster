@@ -73,3 +73,14 @@ variable "metadata_http_endpoint_enabled" {
   default     = true
   description = "Whether or not to enable metadata HTTP endpoint. Valid values are `true` or `false`"
 }
+
+variable "vpc_id" {
+    type        = string
+    description = "VPC ID"
+}
+
+variable "private_dns_namespace_enabled" {
+    type        = bool
+    default     = false
+    description = "Whether or not to enable private DNS namespace. Valid values are `true` or `false`"
+}

@@ -9,3 +9,10 @@ module "ecs_cluster" {
   context                         = module.this.context
 }
 
+resource "aws_service_discovery_private_dns_namespace" "this" {
+  count = var.private_dns_namespace_enabled ? 1 : 0
+  name        = "${var.namespace}.${var.environment}.cluster"
+  description = "Namespace for ${var.namespace}.${var.environment}.cluster"
+  vpc         = var.vpc_id
+tags = var.tags
+}
