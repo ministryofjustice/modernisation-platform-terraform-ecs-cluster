@@ -81,6 +81,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_cluster_arn"></a> [cluster\_arn](#input\_cluster\_arn) | The ARN of the ECS cluster | `string` | n/a | yes |
 | <a name="input_container_definitions"></a> [container\_definitions](#input\_container\_definitions) | The JSON formatted container definition | `string` | n/a | yes |
+| <a name="input_deployment_circuit_breaker"></a> [deployment\_circuit\_breaker](#input\_deployment\_circuit\_breaker) | The deployment circuit breaker configuration | <pre>object({<br>    enable   = bool<br>    rollback = bool<br>  })</pre> | <pre>{<br>  "enable": false,<br>  "rollback": false<br>}</pre> | no |
 | <a name="input_deployment_maximum_percent"></a> [deployment\_maximum\_percent](#input\_deployment\_maximum\_percent) | The upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment | `number` | `200` | no |
 | <a name="input_deployment_minimum_healthy_percent"></a> [deployment\_minimum\_healthy\_percent](#input\_deployment\_minimum\_healthy\_percent) | The lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment | `number` | `100` | no |
 | <a name="input_desired_count"></a> [desired\_count](#input\_desired\_count) | The number of instances of the task definition to place and keep running | `number` | `1` | no |
