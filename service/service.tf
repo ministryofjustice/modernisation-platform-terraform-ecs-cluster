@@ -27,7 +27,7 @@ resource "aws_ecs_service" "this" {
   }
   health_check_grace_period_seconds = var.health_check_grace_period_seconds
 
-  iam_role = var.ecs_service_role_arn
+  iam_role = var.service_role_arn
 
   wait_for_steady_state = var.wait_for_steady_state
 

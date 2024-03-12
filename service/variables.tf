@@ -85,10 +85,21 @@ variable "target_group_arn" {
   description = "The ARN of the target group to associate with the service"
 }
 
-variable "ecs_service_role_arn" {
+variable "service_role_arn" {
   type        = string
   description = "The ARN of the IAM role to use for the service"
 }
+
+variable "task_role_arn" {
+  type        = string
+  description = "The ARN of the IAM role to use for the task"
+}
+
+variable "execution_role_arn" {
+  type        = string
+  description = "The ARN of the IAM role to use for the execution"
+}
+
 
 variable "wait_for_steady_state" {
   type        = bool

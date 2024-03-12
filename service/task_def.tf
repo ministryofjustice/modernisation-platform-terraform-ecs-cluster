@@ -3,6 +3,9 @@ resource "aws_ecs_task_definition" "default" {
   container_definitions = var.container_definitions
   family                = var.name
 
+  task_role_arn      = var.task_role_arn
+  execution_role_arn = var.execution_role_arn
+
   network_mode = "awsvpc"
 
   dynamic "volume" {
@@ -38,6 +41,9 @@ resource "aws_ecs_task_definition" "ignore_changes" {
   count                 = var.ignore_changes ? 0 : 1
   container_definitions = var.container_definitions
   family                = var.name
+
+  task_role_arn      = var.task_role_arn
+  execution_role_arn = var.execution_role_arn
 
   network_mode = "awsvpc"
 
