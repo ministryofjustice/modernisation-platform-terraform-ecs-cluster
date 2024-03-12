@@ -41,6 +41,10 @@ resource "aws_ecs_task_definition" "ignore_changes" {
 
   network_mode = "awsvpc"
 
+  ephemeral_storage {
+    size_in_gib = var.ephemeral_storage_size_in_gib
+  }
+
   dynamic "volume" {
     for_each = var.efs_volumes
     content {
