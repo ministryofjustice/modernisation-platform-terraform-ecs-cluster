@@ -11,6 +11,7 @@ variable "name" {
 variable "tags" {
   type        = map(string)
   description = "A map of tags to add to all resources"
+  default     = {}
 }
 
 variable "container_definitions" {
@@ -78,11 +79,6 @@ variable "health_check_grace_period_seconds" {
   type        = number
   description = "The grace period to allow for healthy instances to warm up before checking them"
   default     = 0
-}
-
-variable "target_group_arn" {
-  type        = string
-  description = "The ARN of the target group to associate with the service"
 }
 
 variable "service_role_arn" {
