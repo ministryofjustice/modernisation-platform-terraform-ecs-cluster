@@ -22,7 +22,7 @@ resource "aws_ecs_service" "default" {
 
   force_new_deployment = var.force_new_deployment
   triggers = var.force_new_deployment ? {
-    update = timestamp() # force update in-place every apply
+    update = plantimestamp() # force update in-place every apply
   } : null
 
   dynamic "load_balancer" {
@@ -75,7 +75,7 @@ resource "aws_ecs_service" "ignore_changes" {
   force_new_deployment = var.force_new_deployment
 
   triggers = var.force_new_deployment ? {
-    update = timestamp() # force update in-place every apply
+    update = plantimestamp() # force update in-place every apply
   } : null
   dynamic "load_balancer" {
     for_each = var.service_load_balancers
