@@ -124,3 +124,14 @@ variable "task_memory" {
   description = "The amount of memory to use for the task definition"
   default     = "512"
 }
+
+
+variable "service_load_balancers" {
+  type = list(object({
+    container_name   = string
+    container_port   = number
+    elb_name         = optional(string)
+    target_group_arn = string
+  }))
+  description = "A list of load balancers to associate with the service"
+}

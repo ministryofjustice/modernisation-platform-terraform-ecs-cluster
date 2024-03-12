@@ -25,6 +25,17 @@ resource "aws_ecs_service" "this" {
     container_name   = var.name
     container_port   = var.container_port
   }
+
+  dynamic "load_balancer" {
+    for_each = var.service_load_balancers
+    content {
+      container_name   = load_balancer.value.container_name
+      container_port   = load_balancer.value.container_port
+      elb_name         = lookup(load_balancer.value, "elb_name", null)
+      target_group_arn = lookup(load_balancer.value, "target_group_arn", null)
+    }
+  }
+
   health_check_grace_period_seconds = var.health_check_grace_period_seconds
 
   iam_role = var.service_role_arn
