@@ -96,8 +96,7 @@ No modules.
 | <a name="input_service_load_balancers"></a> [service\_load\_balancers](#input\_service\_load\_balancers) | A list of load balancers to associate with the service | <pre>list(object({<br>    container_name   = string<br>    container_port   = number<br>    elb_name         = optional(string)<br>    target_group_arn = string<br>  }))</pre> | n/a | yes |
 | <a name="input_service_role_arn"></a> [service\_role\_arn](#input\_service\_role\_arn) | The ARN of the IAM role to use for the service | `string` | n/a | yes |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | A list of subnet IDs to launch the service in | `list(string)` | n/a | yes |
-| <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources | `map(string)` | n/a | yes |
-| <a name="input_target_group_arn"></a> [target\_group\_arn](#input\_target\_group\_arn) | The ARN of the target group to associate with the service | `string` | n/a | yes |
+| <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources | `map(string)` | `{}` | no |
 | <a name="input_task_cpu"></a> [task\_cpu](#input\_task\_cpu) | The amount of CPU to use for the task definition | `string` | `"256"` | no |
 | <a name="input_task_exec_role_arn"></a> [task\_exec\_role\_arn](#input\_task\_exec\_role\_arn) | The ARN of the IAM role to use for the execution | `string` | n/a | yes |
 | <a name="input_task_memory"></a> [task\_memory](#input\_task\_memory) | The amount of memory to use for the task definition | `string` | `"512"` | no |
