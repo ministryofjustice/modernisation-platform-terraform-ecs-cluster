@@ -4,13 +4,12 @@ resource "aws_ecs_task_definition" "default" {
   family                = var.name
 
   task_role_arn      = var.task_role_arn
-  execution_role_arn = var.execution_role_arn
+  execution_role_arn = var.task_exec_role_arn
 
   network_mode = "awsvpc"
 
-  task_cpu    = var.task_cpu
-  task_memory = var.task_memory
-
+  cpu    = var.task_cpu
+  memory = var.task_memory
   dynamic "volume" {
     for_each = var.efs_volumes
     content {
@@ -46,12 +45,12 @@ resource "aws_ecs_task_definition" "ignore_changes" {
   family                = var.name
 
   task_role_arn      = var.task_role_arn
-  execution_role_arn = var.execution_role_arn
+  execution_role_arn = var.task_exec_role_arn
 
   network_mode = "awsvpc"
 
-  task_cpu    = var.task_cpu
-  task_memory = var.task_memory
+  cpu    = var.task_cpu
+  memory = var.task_memory
 
   ephemeral_storage {
     size_in_gib = var.ephemeral_storage_size_in_gib

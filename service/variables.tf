@@ -95,7 +95,7 @@ variable "task_role_arn" {
   description = "The ARN of the IAM role to use for the task"
 }
 
-variable "execution_role_arn" {
+variable "task_exec_role_arn" {
   type        = string
   description = "The ARN of the IAM role to use for the execution"
 }
