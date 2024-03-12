@@ -126,3 +126,15 @@ variable "service_load_balancers" {
   }))
   description = "A list of load balancers to associate with the service"
 }
+
+variable "deployment_circuit_breaker" {
+  type = object({
+    enable   = bool
+    rollback = bool
+  })
+  description = "The deployment circuit breaker configuration"
+  default = {
+    enable   = false
+    rollback = false
+  }
+}

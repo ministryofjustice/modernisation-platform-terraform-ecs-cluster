@@ -30,6 +30,11 @@ resource "aws_ecs_service" "this" {
     }
   }
 
+  deployment_circuit_breaker {
+    enable   = var.deployment_circuit_breaker.enable
+    rollback = var.deployment_circuit_breake.rollback
+  }
+
   health_check_grace_period_seconds = var.health_check_grace_period_seconds
 
   iam_role = var.service_role_arn
