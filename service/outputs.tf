@@ -1,4 +1,4 @@
 output "service_arn" {
-  value       = aws_ecs_service.this.id
+  value       = var.ignore_changes ? aws_ecs_service.ignore_changes[0].arn : aws_ecs_service.default[0].arn
   description = "The ARN for the ECS Service"
 }
