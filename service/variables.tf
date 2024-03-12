@@ -70,11 +70,6 @@ variable "force_new_deployment" {
   default     = false
 }
 
-variable "container_port" {
-  type        = number
-  description = "The port on the container to associate with the load balancer"
-}
-
 variable "health_check_grace_period_seconds" {
   type        = number
   description = "The grace period to allow for healthy instances to warm up before checking them"

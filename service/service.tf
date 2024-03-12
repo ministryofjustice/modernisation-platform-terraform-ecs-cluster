@@ -20,12 +20,6 @@ resource "aws_ecs_service" "this" {
 
   force_new_deployment = var.force_new_deployment
 
-  load_balancer {
-    target_group_arn = var.target_group_arn
-    container_name   = var.name
-    container_port   = var.container_port
-  }
-
   dynamic "load_balancer" {
     for_each = var.service_load_balancers
     content {
