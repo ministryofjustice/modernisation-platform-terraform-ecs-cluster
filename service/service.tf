@@ -3,7 +3,7 @@ resource "aws_ecs_service" "this" {
 
   cluster = var.cluster_arn
 
-  task_definition = var.ignore_changes ? aws_ecs_task_definition.ignore_changes[0].arn : aws_ecs_task_definition[0].default.arn
+  task_definition = var.ignore_changes ? aws_ecs_task_definition.ignore_changes[0].arn : aws_ecs_task_definition.default[0].arn
 
   launch_type = "FARGATE"
   network_configuration {
