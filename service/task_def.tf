@@ -8,6 +8,9 @@ resource "aws_ecs_task_definition" "default" {
 
   network_mode = "awsvpc"
 
+  task_cpu    = var.task_cpu
+  task_memory = var.task_memory
+
   dynamic "volume" {
     for_each = var.efs_volumes
     content {
@@ -46,6 +49,9 @@ resource "aws_ecs_task_definition" "ignore_changes" {
   execution_role_arn = var.execution_role_arn
 
   network_mode = "awsvpc"
+
+  task_cpu    = var.task_cpu
+  task_memory = var.task_memory
 
   ephemeral_storage {
     size_in_gib = var.ephemeral_storage_size_in_gib

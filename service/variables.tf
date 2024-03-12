@@ -112,3 +112,15 @@ variable "ephemeral_storage_size_in_gib" {
   description = "The size of the ephemeral storage to use for the task definition"
   default     = 30
 }
+
+variable "task_cpu" {
+  type        = string
+  description = "The amount of CPU to use for the task definition"
+  default     = "256"
+}
+
+variable "task_memory" {
+  type        = string
+  description = "The amount of memory to use for the task definition"
+  default     = "512"
+}
