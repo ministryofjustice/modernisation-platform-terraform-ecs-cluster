@@ -88,7 +88,6 @@ No modules.
 | <a name="input_efs_volumes"></a> [efs\_volumes](#input\_efs\_volumes) | A list of EFS volumes to attach to the task definition | `list(map(string))` | `[]` | no |
 | <a name="input_enable_execute_command"></a> [enable\_execute\_command](#input\_enable\_execute\_command) | Whether to enable the execute command functionality on the service | `bool` | `false` | no |
 | <a name="input_ephemeral_storage_size_in_gib"></a> [ephemeral\_storage\_size\_in\_gib](#input\_ephemeral\_storage\_size\_in\_gib) | The size of the ephemeral storage to use for the task definition | `number` | `30` | no |
-| <a name="input_execution_role_arn"></a> [execution\_role\_arn](#input\_execution\_role\_arn) | The ARN of the IAM role to use for the execution | `string` | n/a | yes |
 | <a name="input_force_new_deployment"></a> [force\_new\_deployment](#input\_force\_new\_deployment) | Whether to force a new deployment of the service | `bool` | `false` | no |
 | <a name="input_health_check_grace_period_seconds"></a> [health\_check\_grace\_period\_seconds](#input\_health\_check\_grace\_period\_seconds) | The grace period to allow for healthy instances to warm up before checking them | `number` | `0` | no |
 | <a name="input_ignore_changes"></a> [ignore\_changes](#input\_ignore\_changes) | Whether to ignore changes to the task definition | `bool` | n/a | yes |
@@ -100,6 +99,7 @@ No modules.
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources | `map(string)` | n/a | yes |
 | <a name="input_target_group_arn"></a> [target\_group\_arn](#input\_target\_group\_arn) | The ARN of the target group to associate with the service | `string` | n/a | yes |
 | <a name="input_task_cpu"></a> [task\_cpu](#input\_task\_cpu) | The amount of CPU to use for the task definition | `string` | `"256"` | no |
+| <a name="input_task_exec_role_arn"></a> [task\_exec\_role\_arn](#input\_task\_exec\_role\_arn) | The ARN of the IAM role to use for the execution | `string` | n/a | yes |
 | <a name="input_task_memory"></a> [task\_memory](#input\_task\_memory) | The amount of memory to use for the task definition | `string` | `"512"` | no |
 | <a name="input_task_role_arn"></a> [task\_role\_arn](#input\_task\_role\_arn) | The ARN of the IAM role to use for the task | `string` | n/a | yes |
 | <a name="input_wait_for_steady_state"></a> [wait\_for\_steady\_state](#input\_wait\_for\_steady\_state) | Whether to wait for the service to reach a steady state before reporting success | `bool` | `false` | no |
