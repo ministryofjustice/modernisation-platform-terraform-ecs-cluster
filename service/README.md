@@ -94,6 +94,7 @@ No modules.
 | <a name="input_ignore_changes"></a> [ignore\_changes](#input\_ignore\_changes) | Whether to ignore changes to the task definition | `bool` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | The name of the ECS service | `string` | n/a | yes |
 | <a name="input_security_groups"></a> [security\_groups](#input\_security\_groups) | A list of security group IDs to associate with the service | `list(string)` | n/a | yes |
+| <a name="input_service_load_balancers"></a> [service\_load\_balancers](#input\_service\_load\_balancers) | A list of load balancers to associate with the service | <pre>list(object({<br>    container_name   = string<br>    container_port   = number<br>    elb_name         = optional(string)<br>    target_group_arn = string<br>  }))</pre> | n/a | yes |
 | <a name="input_service_role_arn"></a> [service\_role\_arn](#input\_service\_role\_arn) | The ARN of the IAM role to use for the service | `string` | n/a | yes |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | A list of subnet IDs to launch the service in | `list(string)` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources | `map(string)` | n/a | yes |
