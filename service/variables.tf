@@ -76,6 +76,12 @@ variable "container_definition_json" {
     EOT
 }
 
+variable "task_definition" {
+  type        = string
+  description = "The family for the latest ACTIVE revision of the task definition"
+  default     = ""
+}
+
 variable "subnet_ids" {
   type        = list(string)
   description = "Subnet IDs used in Service `network_configuration` if `var.network_mode = \"awsvpc\"`"

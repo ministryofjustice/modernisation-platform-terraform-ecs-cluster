@@ -7,8 +7,11 @@ module "ecs_alb_service_task" {
 
   source = "../cloudposse/ecs-alb-service-task/aws"
 
-  alb_security_group             = var.alb_security_group_id
-  container_definition_json      = var.container_definition_json
+  alb_security_group = var.alb_security_group_id
+
+  container_definition_json = var.task_definition != "" ? var.container_definition_json : null
+  task_definition           = var.task_definition != "" ? var.task_definition : null
+
   ecs_cluster_arn                = var.ecs_cluster_arn
   launch_type                    = var.launch_type
   vpc_id                         = var.vpc_id
