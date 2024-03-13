@@ -1,5 +1,5 @@
 locals {
-  container_definition = jsonencode({
+  container_definition = {
     name                   = var.name,
     image                  = var.image,
     portMappings           = var.port_mappings,
@@ -10,5 +10,7 @@ locals {
     logConfiguration       = var.log_configuration,
     secrets                = var.secrets,
     environment            = var.environment
-  })
+  }
+  container_definition_json = jsonencode(local.container_definition)
+  container_definition_list = jsonencode([local.container_definition])
 }
