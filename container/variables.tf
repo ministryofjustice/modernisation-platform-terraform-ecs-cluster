@@ -12,7 +12,7 @@ variable "port_mappings" {
   description = "The port mappings for the container"
   type = list(object({
     containerPort = number
-    hostPort      = number
+    hostPort      = optional(number, null)
     protocol      = string
   }))
 }
