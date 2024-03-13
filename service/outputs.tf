@@ -9,7 +9,7 @@ output "task_definition_arn" {
 }
 
 output "task_definition_string" {
-  value       = var.ignore_changes ? "${aws_ecs_task_definition.ignore_changes[*].id}:${aws_ecs_task_definition.ignore_changes[*].revision}" : "${aws_ecs_task_definition.default[*].id}:${aws_ecs_task_definition.default[*].revision}"
+  value       = var.ignore_changes ? "${aws_ecs_task_definition.ignore_changes[0].id}:${aws_ecs_task_definition.ignore_changes[0].revision}" : "${aws_ecs_task_definition.default[0].id}:${aws_ecs_task_definition.default[0].revision}"
   description = "The JSON formatted container definition"
 }
 
