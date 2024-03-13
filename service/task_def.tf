@@ -40,7 +40,7 @@ resource "aws_ecs_task_definition" "default" {
 }
 
 resource "aws_ecs_task_definition" "ignore_changes" {
-  count                 = var.ignore_changes ? 0 : 1
+  count                 = var.ignore_changes ? 1 : 0
   container_definitions = var.container_definitions
   family                = var.name
 
