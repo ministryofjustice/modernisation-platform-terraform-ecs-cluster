@@ -12,5 +12,5 @@ locals {
     environment            = var.environment
   }
   container_definition_json = jsonencode(local.container_definition)
-  container_definition_list = jsonencode([local.container_definition])
+  container_definition_list = jsonencode(tolist([local.container_definition))
 }
