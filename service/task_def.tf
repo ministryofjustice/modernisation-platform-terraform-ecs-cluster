@@ -1,6 +1,6 @@
 resource "aws_ecs_task_definition" "default" {
   count                 = var.ignore_changes ? 0 : 1
-  container_definitions = var.container_definitions
+  container_definitions = nonsensitive(var.container_definitions)
   family                = var.name
 
   task_role_arn      = var.task_role_arn
@@ -41,7 +41,7 @@ resource "aws_ecs_task_definition" "default" {
 
 resource "aws_ecs_task_definition" "ignore_changes" {
   count                 = var.ignore_changes ? 1 : 0
-  container_definitions = var.container_definitions
+  container_definitions = nonsensitive(var.container_definitions)
   family                = var.name
 
   task_role_arn      = var.task_role_arn
