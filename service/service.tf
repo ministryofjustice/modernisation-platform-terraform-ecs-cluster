@@ -89,7 +89,7 @@ resource "aws_ecs_service" "ignore_changes" {
 
   deployment_circuit_breaker {
     enable   = var.deployment_circuit_breaker.enable
-    rollback = var.deployment_circuit_breake.rollback
+    rollback = var.deployment_circuit_breaker.rollback
   }
 
   health_check_grace_period_seconds = var.health_check_grace_period_seconds
