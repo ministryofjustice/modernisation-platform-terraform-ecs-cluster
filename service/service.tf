@@ -57,7 +57,7 @@ resource "aws_ecs_service" "ignore_changes" {
 
   cluster = var.cluster_arn
 
-  task_definition = var.ignore_changes ? aws_ecs_task_definition.ignore_changes[0].arn : aws_ecs_task_definition.default[0].arn
+  task_definition = var.ignore_changes ? "${aws_ecs_task_definition.ignore_changes[*].id}:${aws_ecs_task_definition.ignore_changes[*].revision}" : "${aws_ecs_task_definition.default[*].id}:${aws_ecs_task_definition.default[*].revision}"
 
   launch_type = "FARGATE"
   network_configuration {
