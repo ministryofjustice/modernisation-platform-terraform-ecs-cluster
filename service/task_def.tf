@@ -1,5 +1,5 @@
 resource "aws_ecs_task_definition" "default" {
-  count                 = var.ignore_changes ? 0 : 1
+  count                 = var.ignore_changes || var.ignore_changes_service_task_definition == false ? 0 : 1
   container_definitions = nonsensitive(var.container_definitions)
   family                = var.name
 
@@ -40,7 +40,7 @@ resource "aws_ecs_task_definition" "default" {
 }
 
 resource "aws_ecs_task_definition" "ignore_changes" {
-  count                 = var.ignore_changes ? 1 : 0
+  count                 = var.ignore_changes || var.ignore_changes_service_task_definition == false ? 1 : 0
   container_definitions = nonsensitive(var.container_definitions)
   family                = var.name
 
