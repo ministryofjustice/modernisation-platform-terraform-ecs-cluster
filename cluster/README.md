@@ -50,7 +50,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_enable_container_insights"></a> [enable\_container\_insights](#input\_enable\_container\_insights) | n/a | `bool` | `true` | no |
+| <a name="input_enable_container_insights"></a> [enable\_container\_insights](#input\_enable\_container\_insights) | n/a | `string` | `"enabled"` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the ECS cluster | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources | `map(string)` | n/a | yes |
 
