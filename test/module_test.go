@@ -1,10 +1,11 @@
 package main
 
 import (
-	"github.com/gruntwork-io/terratest/modules/terraform"
-	"github.com/stretchr/testify/assert"
 	"regexp"
 	"testing"
+
+	"github.com/gruntwork-io/terratest/modules/terraform"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestModule(t *testing.T) {
@@ -20,5 +21,5 @@ func TestModule(t *testing.T) {
 
 	exampleArn := terraform.Output(t, terraformOptions, "cluster_arn")
 
-	assert.Regexp(t, regexp.MustCompile(`^arn:aws:ecs:eu-west-2:[0-9]{12}:cluster/namespace-test-unit-test`), exampleArn)
+	assert.Regexp(t, regexp.MustCompile(`^arn:aws:ecs:eu-west-2:[0-9]{12}:cluster/unit-test`), exampleArn)
 }
