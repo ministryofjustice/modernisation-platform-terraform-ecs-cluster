@@ -1,3 +1,3 @@
 output "ecs_cluster_arn" {
-  value = module.ecs_cluster.arn
+  value = aws_ecs_cluster.this.arn
 }

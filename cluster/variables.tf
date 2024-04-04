@@ -1,6 +1,6 @@
 variable "enable_container_insights" {
-  type    = bool
-  default = true
+  type    = string
+  default = "enabled"
 }
 
 variable "name" {
