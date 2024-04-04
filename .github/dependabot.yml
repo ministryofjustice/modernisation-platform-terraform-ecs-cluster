@@ -1,11 +1,33 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+# This file is auto-generated here, do not manually amend. 
+# https://github.com/ministryofjustice/modernisation-platform/blob/main/scripts/generate-dependabot.sh
 
 version: 2
+
 updates:
-  - package-ecosystem: "github-actions" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: "monthly"
+      interval: "daily"
+  # Dependabot doesn't currently support wildcard or multiple directory declarations within
+  # a dependabot configuration, so we need to add all directories individually
+  # See: github.com/dependabot/dependabot-core/issues/2178
+  - package-ecosystem: "terraform"
+    directory: "/cluster"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "terraform"
+    directory: "/container"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "terraform"
+    directory: "/service"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "terraform"
+    directory: "/test/unit-test"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "gomod"
+    directory: "/test"
+    schedule:
+      interval: "daily"
