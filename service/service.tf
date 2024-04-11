@@ -42,8 +42,6 @@ resource "aws_ecs_service" "default" {
 
   health_check_grace_period_seconds = var.health_check_grace_period_seconds
 
-  # iam_role = var.service_role_arn
-
   wait_for_steady_state = var.wait_for_steady_state
 
   tags = var.tags
@@ -93,8 +91,6 @@ resource "aws_ecs_service" "ignore_changes" {
   }
 
   health_check_grace_period_seconds = var.health_check_grace_period_seconds
-
-  iam_role = var.service_role_arn
 
   wait_for_steady_state = var.wait_for_steady_state
 
