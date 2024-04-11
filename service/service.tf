@@ -1,5 +1,5 @@
 resource "aws_ecs_service" "default" {
-  count = var.ignore_changes || var.ignore_changes_task_definition ? 0 : 1
+  count = var.ignore_changes || var.ignore_changes_service_task_definition ? 0 : 1
 
   name = var.name
 
