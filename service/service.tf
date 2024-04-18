@@ -1,7 +1,6 @@
 resource "aws_ecs_service" "default" {
-  count = var.ignore_changes || var.ignore_changes_service_task_definition ? 0 : 1
-
-  name = var.name
+  count = var.ignore_changes == false || var.ignore_changes_service_task_definition == false ? 1 : 0
+  name  = var.name
 
   cluster = var.cluster_arn
 
