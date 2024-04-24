@@ -16,7 +16,7 @@ This module is used to deploy an ECS cluster with fargate support only.
 ```hcl
 module "ecs-cluster" {
   source = "github.com/ministryofjustice/modernisation-platform-terraform-ecs-cluster//cluster"
-  name        = "my-ecs-cluster
+  name        = "my-ecs-cluster"
   tags = {
     "environment" = "dev"
   }
