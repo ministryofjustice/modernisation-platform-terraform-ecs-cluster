@@ -25,15 +25,22 @@ variable "ignore_changes" {
   description = "Whether to ignore changes to the service, task definition, container definition"
 }
 
-variable "ignore_changes_service_task_definition" {
-  type        = bool
-  description = "Whether to ignore changes to the task definition attribute of the service"
-}
-
 variable "efs_volumes" {
-  type        = list(map(string))
-  description = "A list of EFS volumes to attach to the task definition"
-  default     = []
+  type = list(object({
+    host_path = string
+    name      = string
+    efs_volume_configuration = list(object({
+      file_system_id          = string
+      root_directory          = string
+      transit_encryption      = string
+      transit_encryption_port = string
+      authorization_config = list(object({
+        access_point_id = string
+        iam             = string
+      }))
+    }))
+  }))
+  default = []
 }
 
 variable "desired_count" {
