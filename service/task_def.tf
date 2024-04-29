@@ -65,7 +65,7 @@ resource "aws_ecs_task_definition" "ignore_changes" {
       name      = volume.value.name
 
       dynamic "efs_volume_configuration" {
-        for_each = volume.value
+        for_each = lookup(volume.value, "efs_volume_configuration", [])
 
         content {
           file_system_id          = lookup(efs_volume_configuration.value, "file_system_id", null)
