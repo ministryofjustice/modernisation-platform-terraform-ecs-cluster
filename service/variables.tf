@@ -45,6 +45,7 @@ variable "efs_volumes" {
       }))
     }))
   }))
+  default = []
 }
 
 variable "desired_count" {
