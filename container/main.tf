@@ -10,7 +10,19 @@ locals {
     logConfiguration       = var.log_configuration,
     secrets                = var.secrets,
     environment            = var.environment
+    healthCheck            = var.health_check
+    systemControls         = var.system_controls
+    command                = var.command
+    startTimeout           = var.start_timeout
+    stopTimeout            = var.stop_timeout
+    entryPoint             = var.entry_point
+    linuxParameters        = var.linux_parameters
   }
-  container_definition_json = jsonencode(local.container_definition)
-  container_definition_list = jsonencode([local.container_definition])
+
+  filtered_container_definition = {
+    for key, value in local.container_definition : key => value if value != null
+  }
+
+  container_definition_json = jsonencode(local.filtered_container_definition)
+  container_definition_list = jsonencode([local.filtered_container_definition])
 }
