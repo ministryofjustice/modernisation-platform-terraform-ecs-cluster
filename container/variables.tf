@@ -10,7 +10,7 @@ variable "image" {
 
 variable "port_mappings" {
   description = "The port mappings for the container"
-  type        = list(object({
+  type = list(object({
     containerPort = number
     hostPort      = optional(number, null)
     protocol      = string
@@ -41,7 +41,7 @@ variable "readonly_root_filesystem" {
 
 variable "log_configuration" {
   description = "The log configuration for the container"
-  type        = object({
+  type = object({
     logDriver = string
     options   = map(string)
   })
@@ -49,7 +49,7 @@ variable "log_configuration" {
 
 variable "secrets" {
   description = "The secrets for the container"
-  type        = list(object({
+  type = list(object({
     name      = string
     valueFrom = string
   }))
@@ -57,7 +57,7 @@ variable "secrets" {
 
 variable "environment" {
   description = "The environment for the container"
-  type        = list(object({
+  type = list(object({
     name  = string
     value = string
   }))
@@ -65,7 +65,7 @@ variable "environment" {
 
 variable "mount_points" {
   description = "The mount points for the container"
-  type        = list(object({
+  type = list(object({
     sourceVolume  = string
     containerPath = string
     readOnly      = bool
@@ -74,7 +74,7 @@ variable "mount_points" {
 
 variable "health_check" {
   description = "The health check for the container"
-  type        = object({
+  type = object({
     command     = list(string)
     interval    = number
     timeout     = number
@@ -86,7 +86,7 @@ variable "health_check" {
 
 variable "system_controls" {
   description = "The system controls for the container"
-  type        = list(object({
+  type = list(object({
     namespace = string
     value     = string
   }))
@@ -119,7 +119,7 @@ variable "entry_point" {
 
 variable "linux_parameters" {
   description = "The linux parameters for the container"
-  type        = object({
+  type = object({
     capabilities = object({
       add  = list(string)
       drop = list(string)
