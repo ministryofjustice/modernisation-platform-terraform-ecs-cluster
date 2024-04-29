@@ -97,7 +97,6 @@ No modules.
 | <a name="input_force_new_deployment"></a> [force\_new\_deployment](#input\_force\_new\_deployment) | Whether to force a new deployment of the service | `bool` | `false` | no |
 | <a name="input_health_check_grace_period_seconds"></a> [health\_check\_grace\_period\_seconds](#input\_health\_check\_grace\_period\_seconds) | The grace period to allow for healthy instances to warm up before checking them | `number` | `0` | no |
 | <a name="input_ignore_changes"></a> [ignore\_changes](#input\_ignore\_changes) | Whether to ignore changes to the service, task definition, container definition | `bool` | n/a | yes |
-| <a name="input_ignore_changes_service_task_definition"></a> [ignore\_changes\_service\_task\_definition](#input\_ignore\_changes\_service\_task\_definition) | Whether to ignore changes to the task definition attribute of the service | `bool` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | The name of the ECS service | `string` | n/a | yes |
 | <a name="input_security_groups"></a> [security\_groups](#input\_security\_groups) | A list of security group IDs to associate with the service | `list(string)` | n/a | yes |
 | <a name="input_service_load_balancers"></a> [service\_load\_balancers](#input\_service\_load\_balancers) | A list of load balancers to associate with the service | <pre>list(object({<br>    container_name   = string<br>    container_port   = number<br>    elb_name         = optional(string)<br>    target_group_arn = string<br>  }))</pre> | n/a | yes |
