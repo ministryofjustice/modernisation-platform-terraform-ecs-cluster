@@ -31,7 +31,7 @@ variable "ignore_changes_service_task_definition" {
 }
 
 variable "efs_volumes" {
-  type        = list(map(string))
+  type        = list(map(any))
   description = "A list of EFS volumes to attach to the task definition"
   default     = []
 }
