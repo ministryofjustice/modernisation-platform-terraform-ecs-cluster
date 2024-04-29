@@ -25,11 +25,6 @@ variable "ignore_changes" {
   description = "Whether to ignore changes to the service, task definition, container definition"
 }
 
-variable "ignore_changes_service_task_definition" {
-  type        = bool
-  description = "Whether to ignore changes to the task definition attribute of the service"
-}
-
 variable "efs_volumes" {
   type = list(object({
     host_path = string
