@@ -17,6 +17,7 @@ locals {
     stopTimeout            = var.stop_timeout
     entryPoint             = var.entry_point
     linuxParameters        = var.linux_parameters
+    mountPoints            = var.mount_points
   }
 
   filtered_container_definition = {
