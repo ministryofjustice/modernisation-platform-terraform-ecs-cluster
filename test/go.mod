@@ -1,8 +1,6 @@
 module module_test.go
 
-go 1.21
-
-toolchain go1.21.6
+go 1.20
 
 require (
 	github.com/gruntwork-io/terratest v0.46.14
