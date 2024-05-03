@@ -1,24 +1,74 @@
 <!-- Rename the heading when using this template -->
-# modernisation-platform-terraform-ecs//container
 
+# modernisation-platform-terraform-ecs//container
 
 <!-- Change the URL in the release badge to point towards your new repository -->
 [![Releases](https://img.shields.io/github/release/ministryofjustice/terraform-ecs/all.svg?style=flat-square)](https://github.com/ministryofjustice/terraform-ecs/releases)
 
 <!-- Add a short description of the module -->
-This module is used to deploy an ECS cluster with fargate support only.
+This module creates an ECS container definition.
+
+It takes in a number of inputs (see TFDocs below) and outputs a container definition that can be used in an ECS task
+definition. It outputs the container definition as a JSON string as well as a list so that multiple containers can be
+defined in a single task definition (call this module many times and concat the list outputs).
 
 ## Usage example
 
 <!-- Describe how to use the module -->
 
 <!-- Change the source URL below to point towards your new repository -->
+
 ```hcl
-module "ecs-cluster" {
-  source = "github.com/ministryofjustice/modernisation-platform-terraform-ecs-cluster//cluster"
-  name        = "my-ecs-cluster
-  tags = {
-    "environment" = "dev"
+module "container_definition" {
+  source                   = "git::https://github.com/ministryofjustice/modernisation-platform-terraform-ecs-cluster//container?ref=v4.2.0"
+  name                     = "my-container"
+  image                    = "nginx:latest"
+  memory                   = 512
+  cpu                      = 256
+  essential                = true
+  readonly_root_filesystem = false
+
+  environment = [
+    {
+      name  = "ENV_VAR"
+      value = "value"
+    },
+    {
+      name  = "ENV_VAR_2"
+      value = "value"
+    }
+  ]
+
+  secrets = [
+    {
+      name      = "SECRET_NAME
+      valueFrom = "arn:aws:ssm:eu-west-2:123456789012:parameter/secret"
+    },
+    {
+      name      = "SECRET_NAME_2"
+      valueFrom = "arn:aws:ssm:eu-west-2:123456789012:parameter/secret"
+    }
+  ]
+  port_mappings = [
+    {
+      containerPort = 80
+      hostPort      = 80
+    }
+  ]
+  mount_points = [
+    {
+      sourceVolume  = "volume"
+      containerPath = "/var/www/html"
+      readOnly      = false
+    }
+  ]
+  log_configuration = {
+    logDriver = "awslogs"
+    options = {
+      "awslogs-group"         = aws_cloudwatch_log_group.ecs.name
+      "awslogs-region"        = "eu-west-2"
+      "awslogs-stream-prefix" = "nginx"
+    }
   }
 }
 ```
@@ -26,39 +76,7 @@ module "ecs-cluster" {
 <!-- See the [examples/](examples/) folder for more information. -->
 
 <!-- BEGIN_TF_DOCS -->
-## Requirements
 
-No requirements.
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
-
-## Modules
-
-No modules.
-
-## Resources
-
-| Name | Type |
-|------|------|
-| [aws_ecs_cluster.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_cluster) | resource |
-
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| <a name="input_enable_container_insights"></a> [enable\_container\_insights](#input\_enable\_container\_insights) | n/a | `string` | `"enabled"` | no |
-| <a name="input_name"></a> [name](#input\_name) | The name of the ECS cluster | `string` | n/a | yes |
-| <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources | `map(string)` | n/a | yes |
-
-## Outputs
-
-| Name | Description |
-|------|-------------|
-| <a name="output_ecs_cluster_arn"></a> [ecs\_cluster\_arn](#output\_ecs\_cluster\_arn) | n/a |
 <!-- END_TF_DOCS -->
 
 <!-- Uncomment the below if this module uses tags -->
