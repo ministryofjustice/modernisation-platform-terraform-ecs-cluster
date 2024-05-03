@@ -76,7 +76,51 @@ module "container_definition" {
 <!-- See the [examples/](examples/) folder for more information. -->
 
 <!-- BEGIN_TF_DOCS -->
+## Requirements
 
+No requirements.
+
+## Providers
+
+No providers.
+
+## Modules
+
+No modules.
+
+## Resources
+
+No resources.
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_command"></a> [command](#input\_command) | The command for the container | `list(string)` | `null` | no |
+| <a name="input_cpu"></a> [cpu](#input\_cpu) | The number of cpu units to reserve for the container | `number` | `null` | no |
+| <a name="input_entry_point"></a> [entry\_point](#input\_entry\_point) | The entry point for the container | `list(string)` | `null` | no |
+| <a name="input_environment"></a> [environment](#input\_environment) | The environment for the container | <pre>list(object({<br>    name  = string<br>    value = string<br>  }))</pre> | n/a | yes |
+| <a name="input_essential"></a> [essential](#input\_essential) | If the container is essential | `bool` | n/a | yes |
+| <a name="input_health_check"></a> [health\_check](#input\_health\_check) | The health check for the container | <pre>object({<br>    command     = list(string)<br>    interval    = number<br>    timeout     = number<br>    retries     = number<br>    startPeriod = number<br>  })</pre> | `null` | no |
+| <a name="input_image"></a> [image](#input\_image) | The image to use for the container | `string` | n/a | yes |
+| <a name="input_linux_parameters"></a> [linux\_parameters](#input\_linux\_parameters) | The linux parameters for the container | <pre>object({<br>    capabilities = object({<br>      add  = list(string)<br>      drop = list(string)<br>    })<br>    initProcessEnabled = bool<br>  })</pre> | `null` | no |
+| <a name="input_log_configuration"></a> [log\_configuration](#input\_log\_configuration) | The log configuration for the container | <pre>object({<br>    logDriver = string<br>    options   = map(string)<br>  })</pre> | n/a | yes |
+| <a name="input_memory"></a> [memory](#input\_memory) | The amount of memory (in MiB) to reserve for the container | `number` | `null` | no |
+| <a name="input_mount_points"></a> [mount\_points](#input\_mount\_points) | The mount points for the container | <pre>list(object({<br>    sourceVolume  = string<br>    containerPath = string<br>    readOnly      = bool<br>  }))</pre> | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | The name of the container | `string` | n/a | yes |
+| <a name="input_port_mappings"></a> [port\_mappings](#input\_port\_mappings) | The port mappings for the container | <pre>list(object({<br>    containerPort = number<br>    hostPort      = optional(number, null)<br>    protocol      = string<br>  }))</pre> | n/a | yes |
+| <a name="input_readonly_root_filesystem"></a> [readonly\_root\_filesystem](#input\_readonly\_root\_filesystem) | If the container has a readonly root filesystem | `bool` | n/a | yes |
+| <a name="input_secrets"></a> [secrets](#input\_secrets) | The secrets for the container | <pre>list(object({<br>    name      = string<br>    valueFrom = string<br>  }))</pre> | n/a | yes |
+| <a name="input_start_timeout"></a> [start\_timeout](#input\_start\_timeout) | The start timeout for the container | `number` | `null` | no |
+| <a name="input_stop_timeout"></a> [stop\_timeout](#input\_stop\_timeout) | The stop timeout for the container | `number` | `null` | no |
+| <a name="input_system_controls"></a> [system\_controls](#input\_system\_controls) | The system controls for the container | <pre>list(object({<br>    namespace = string<br>    value     = string<br>  }))</pre> | `null` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_json_encoded"></a> [json\_encoded](#output\_json\_encoded) | n/a |
+| <a name="output_json_encoded_list"></a> [json\_encoded\_list](#output\_json\_encoded\_list) | n/a |
 <!-- END_TF_DOCS -->
 
 <!-- Uncomment the below if this module uses tags -->
