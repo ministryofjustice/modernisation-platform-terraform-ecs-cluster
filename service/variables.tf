@@ -17,7 +17,7 @@ variable "tags" {
 variable "container_definitions" {
   type        = string
   description = "The JSON formatted container definition"
-  sensitive   = false
+  sensitive   = true
 }
 
 variable "ignore_changes" {
