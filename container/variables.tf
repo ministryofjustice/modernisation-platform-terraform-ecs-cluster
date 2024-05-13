@@ -70,6 +70,7 @@ variable "mount_points" {
     containerPath = string
     readOnly      = bool
   }))
+  default = null
 }
 
 variable "health_check" {
