@@ -106,7 +106,7 @@ No resources.
 | <a name="input_linux_parameters"></a> [linux\_parameters](#input\_linux\_parameters) | The linux parameters for the container | <pre>object({<br>    capabilities = object({<br>      add  = list(string)<br>      drop = list(string)<br>    })<br>    initProcessEnabled = bool<br>  })</pre> | `null` | no |
 | <a name="input_log_configuration"></a> [log\_configuration](#input\_log\_configuration) | The log configuration for the container | <pre>object({<br>    logDriver = string<br>    options   = map(string)<br>  })</pre> | n/a | yes |
 | <a name="input_memory"></a> [memory](#input\_memory) | The amount of memory (in MiB) to reserve for the container | `number` | `null` | no |
-| <a name="input_mount_points"></a> [mount\_points](#input\_mount\_points) | The mount points for the container | <pre>list(object({<br>    sourceVolume  = string<br>    containerPath = string<br>    readOnly      = bool<br>  }))</pre> | n/a | yes |
+| <a name="input_mount_points"></a> [mount\_points](#input\_mount\_points) | The mount points for the container | <pre>list(object({<br>    sourceVolume  = string<br>    containerPath = string<br>    readOnly      = bool<br>  }))</pre> | `null` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the container | `string` | n/a | yes |
 | <a name="input_port_mappings"></a> [port\_mappings](#input\_port\_mappings) | The port mappings for the container | <pre>list(object({<br>    containerPort = number<br>    hostPort      = optional(number, null)<br>    protocol      = string<br>  }))</pre> | n/a | yes |
 | <a name="input_readonly_root_filesystem"></a> [readonly\_root\_filesystem](#input\_readonly\_root\_filesystem) | If the container has a readonly root filesystem | `bool` | n/a | yes |
