@@ -4,7 +4,7 @@ output "service_arn" {
 }
 
 output "task_definition_arn" {
-  value       = aws_ecs_task_definition.defaults.arn
+  value       = aws_ecs_task_definition.default.arn
   description = "The ARN for the ECS Task Definition"
 }
 
