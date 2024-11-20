@@ -20,7 +20,7 @@ resource "aws_ecs_service" "default" {
 
   force_new_deployment = var.force_new_deployment
   triggers = var.force_new_deployment ? {
-    update = plantimestamp() # force update in-place every apply
+    update = plantimestamp() # force update in-place every apply that has force_new_deployment set to true
   } : null
 
   dynamic "load_balancer" {
@@ -43,5 +43,4 @@ resource "aws_ecs_service" "default" {
   wait_for_steady_state = var.wait_for_steady_state
 
   tags = var.tags
-
 }
