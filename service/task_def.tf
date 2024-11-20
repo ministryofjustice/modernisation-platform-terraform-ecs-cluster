@@ -40,8 +40,3 @@ resource "aws_ecs_task_definition" "default" {
   }
   tags = var.tags
 }
-
-moved {
-  from = aws_ecs_task_definition.ignore_changes
-  to   = aws_ecs_task_definition.default
-}

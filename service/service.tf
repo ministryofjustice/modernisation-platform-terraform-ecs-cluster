@@ -45,8 +45,3 @@ resource "aws_ecs_service" "default" {
   tags = var.tags
 
 }
-
-moved {
-  from = aws_ecs_service.ignore_changes
-  to   = aws_ecs_service.default
-}
