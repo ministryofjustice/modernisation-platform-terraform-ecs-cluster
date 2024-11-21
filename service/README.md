@@ -77,9 +77,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_ecs_service.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service) | resource |
-| [aws_ecs_service.ignore_changes](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_service) | resource |
 | [aws_ecs_task_definition.default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition) | resource |
-| [aws_ecs_task_definition.ignore_changes](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ecs_task_definition) | resource |
 
 ## Inputs
 
