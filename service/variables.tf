@@ -20,11 +20,6 @@ variable "container_definitions" {
   sensitive   = false
 }
 
-variable "ignore_changes" {
-  type        = bool
-  description = "Whether to ignore changes to the service, task definition, container definition"
-}
-
 variable "efs_volumes" {
   type = list(object({
     host_path = string
@@ -150,4 +145,10 @@ variable "deployment_circuit_breaker" {
     enable   = false
     rollback = false
   }
+}
+
+variable "pin_task_definition_revision" {
+  type        = number
+  description = "The revision of the task definition to use"
+  default     = 0
 }

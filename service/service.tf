@@ -3,7 +3,7 @@ resource "aws_ecs_service" "default" {
 
   cluster = var.cluster_arn
 
-  task_definition = aws_ecs_task_definition.default.arn
+  task_definition = var.pin_task_definition_revision != 0 ? "${aws_ecs_task_definition.default.arn_without_revision}:${var.pin_task_definition_revision}" : aws_ecs_task_definition.default.arn
 
   launch_type = "FARGATE"
   network_configuration {
@@ -20,8 +20,8 @@ resource "aws_ecs_service" "default" {
 
   force_new_deployment = var.force_new_deployment
   triggers = var.force_new_deployment ? {
-    update = plantimestamp() # force update in-place every apply that has force_new_deployment set to true
-  } : null
+    redeployment = plantimestamp() # force update in-place every apply that has force_new_deployment set to true
+  } : {}
 
   dynamic "load_balancer" {
     for_each = var.service_load_balancers
