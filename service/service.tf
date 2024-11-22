@@ -3,7 +3,7 @@ resource "aws_ecs_service" "default" {
 
   cluster = var.cluster_arn
 
-  task_definition = var.pin_task_definition_revision != 0 ? "${aws_ecs_task_definition.default.arn}:${var.pin_task_definition_revision}" : aws_ecs_task_definition.default.arn
+  task_definition = var.pin_task_definition_revision != 0 ? "${aws_ecs_task_definition.default.arn_without_revision}:${var.pin_task_definition_revision}" : aws_ecs_task_definition.default.arn
 
   launch_type = "FARGATE"
   network_configuration {
