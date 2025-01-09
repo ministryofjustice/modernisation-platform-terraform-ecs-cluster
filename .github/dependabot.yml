@@ -1,4 +1,4 @@
-# This file is auto-generated here, do not manually amend. 
+# This file is auto-generated here, do not manually amend.
 # https://github.com/ministryofjustice/modernisation-platform/blob/main/scripts/generate-dependabot.sh
 
 version: 2
@@ -12,22 +12,15 @@ updates:
   # a dependabot configuration, so we need to add all directories individually
   # See: github.com/dependabot/dependabot-core/issues/2178
   - package-ecosystem: "terraform"
-    directory: "/cluster"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "terraform"
-    directory: "/container"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "terraform"
-    directory: "/service"
-    schedule:
-      interval: "daily"
-  - package-ecosystem: "terraform"
-    directory: "/test/unit-test"
+    directories:
+      - "/cluster"
+      - "/container"
+      - "/service"
+      - "/test/unit-test"
     schedule:
       interval: "daily"
   - package-ecosystem: "gomod"
-    directory: "/test"
+    directories:
+      - "/test"
     schedule:
       interval: "daily"
