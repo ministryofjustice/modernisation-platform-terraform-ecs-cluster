@@ -8,16 +8,26 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+  # Dependabot doesn't currently support wildcard or multiple directory declarations within
+  # a dependabot configuration, so we need to add all directories individually
+  # See: github.com/dependabot/dependabot-core/issues/2178
   - package-ecosystem: "terraform"
-    directories:
-      - "/cluster"
-      - "/container"
-      - "/service"
-      - "/test/unit-test"
+    directory: "/cluster"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "terraform"
+    directory: "/container"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "terraform"
+    directory: "/service"
+    schedule:
+      interval: "daily"
+  - package-ecosystem: "terraform"
+    directory: "/test/unit-test"
     schedule:
       interval: "daily"
   - package-ecosystem: "gomod"
-    directories:
-      - "/test"
+    directory: "/test"
     schedule:
       interval: "daily"
