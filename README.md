@@ -35,8 +35,8 @@ For examples of the modules individually, please see the readme's linked in [sec
 ## Looking for issues?
 If you're looking to raise an issue with this module, please create a new issue in the [issue tracker.](https://github.com/ministryofjustice/terraform-ecs/issues).
 
-[Standards Link]: https://github-community.cloud-platform.service.justice.gov.uk/repository-standards/modernisation-platform-terraform-ecs-cluster "Repo standards badge."
-[Standards Icon]: https://github-community.cloud-platform.service.justice.gov.uk/repository-standards/api/modernisation-platform-terraform-ecs-cluster/badge
+[Standards Link]: https://github-community.service.justice.gov.uk/repository-standards/modernisation-platform-terraform-ecs-cluster "Repo standards badge."
+[Standards Icon]: https://github-community.service.justice.gov.uk/repository-standards/api/modernisation-platform-terraform-ecs-cluster/badge
 [Format Code Icon]: https://img.shields.io/github/actions/workflow/status/ministryofjustice/modernisation-platform-terraform-ecs-cluster/format-code.yml?labelColor=231f20&style=for-the-badge&label=Formate%20Code
 [Format Code Link]: https://github.com/ministryofjustice/modernisation-platform-terraform-ecs-cluster/actions/workflows/format-code.yml
 [Scorecards Icon]: https://img.shields.io/github/actions/workflow/status/ministryofjustice/modernisation-platform-terraform-ecs-cluster/scorecards.yml?branch=main&labelColor=231f20&style=for-the-badge&label=Scorecards
