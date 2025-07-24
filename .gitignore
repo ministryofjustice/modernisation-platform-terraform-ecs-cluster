@@ -31,3 +31,6 @@ override.tf.json
 
 # Exclude IDE files
 .idea
+
+# Exclude MegaLinter reports
+megalinter-reports
