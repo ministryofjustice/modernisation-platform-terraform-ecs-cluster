@@ -7,7 +7,6 @@ resource "aws_ecs_task_definition" "default" {
   execution_role_arn = var.task_exec_role_arn
 
   network_mode             = "awsvpc"
-  requires_compatibilities = [var.launch_type]
 
   track_latest = true
 

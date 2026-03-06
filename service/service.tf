@@ -5,7 +5,7 @@ resource "aws_ecs_service" "default" {
 
   task_definition = var.pin_task_definition_revision != 0 ? "${aws_ecs_task_definition.default.arn_without_revision}:${var.pin_task_definition_revision}" : aws_ecs_task_definition.default.arn
 
-  launch_type              = var.launch_type
+  launch_type = var.launch_type
 
   network_configuration {
     subnets          = var.subnets
