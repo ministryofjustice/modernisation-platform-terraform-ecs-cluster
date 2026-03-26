@@ -40,7 +40,7 @@ variable "efs_volumes" {
 
 variable "launch_type" {
   type        = string
-  description = "Launch typ required by the task e.g. EC2, FARGATE etc"
+  description = "Launch type required by the task e.g. EC2, FARGATE etc"
   default     = "FARGATE"
 }
 
