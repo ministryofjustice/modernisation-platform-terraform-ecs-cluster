@@ -62,6 +62,7 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_ecs_cluster_arn"></a> [ecs\_cluster\_arn](#output\_ecs\_cluster\_arn) | n/a |
+| <a name="output_ecs_cluster_name"></a> [ecs\_cluster\_name](#output\_ecs\_cluster\_name) | n/a |
 <!-- END_TF_DOCS -->
 
 <!-- Uncomment the below if this module uses tags -->

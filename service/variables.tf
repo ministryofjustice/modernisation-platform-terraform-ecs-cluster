@@ -38,6 +38,12 @@ variable "efs_volumes" {
   default = []
 }
 
+variable "launch_type" {
+  type        = string
+  description = "Launch type required by the task e.g. EC2, FARGATE etc"
+  default     = "FARGATE"
+}
+
 variable "desired_count" {
   type        = number
   description = "The number of instances of the task definition to place and keep running"
