@@ -97,6 +97,7 @@ No modules.
 | <a name="input_ephemeral_storage_size_in_gib"></a> [ephemeral\_storage\_size\_in\_gib](#input\_ephemeral\_storage\_size\_in\_gib) | The size of the ephemeral storage to use for the task definition | `number` | `30` | no |
 | <a name="input_force_new_deployment"></a> [force\_new\_deployment](#input\_force\_new\_deployment) | Whether to force a new deployment of the service | `bool` | `false` | no |
 | <a name="input_health_check_grace_period_seconds"></a> [health\_check\_grace\_period\_seconds](#input\_health\_check\_grace\_period\_seconds) | The grace period to allow for healthy instances to warm up before checking them | `number` | `0` | no |
+| <a name="input_launch_type"></a> [launch\_type](#input\_launch\_type) | Launch typ required by the task e.g. EC2, FARGATE etc | `string` | `"FARGATE"` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name of the ECS service | `string` | n/a | yes |
 | <a name="input_pin_task_definition_revision"></a> [pin\_task\_definition\_revision](#input\_pin\_task\_definition\_revision) | The revision of the task definition to use | `number` | `0` | no |
 | <a name="input_security_groups"></a> [security\_groups](#input\_security\_groups) | A list of security group IDs to associate with the service | `list(string)` | n/a | yes |
