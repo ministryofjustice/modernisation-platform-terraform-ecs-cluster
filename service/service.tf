@@ -5,7 +5,17 @@ resource "aws_ecs_service" "default" {
 
   task_definition = var.pin_task_definition_revision != 0 ? "${aws_ecs_task_definition.default.arn_without_revision}:${var.pin_task_definition_revision}" : aws_ecs_task_definition.default.arn
 
-  launch_type = var.launch_type
+  # Only use launch_type if no capacity provider is set (They conflict)
+  launch_type = var.capacity_provider == null ? var.launch_type : null
+
+  dynamic "capacity_provider_strategy" {
+    for_each = var.capacity_provider == null ? [] : [var.capacity_provider]
+
+    content {
+      capacity_provider = capacity_provider_strategy.value
+      weight            = 1
+    }
+  }
 
   network_configuration {
     subnets          = var.subnets

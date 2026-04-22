@@ -86,6 +86,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_capacity_provider"></a> [capacity\_provider](#input\_capacity\_provider) | Capacity provider for the task to run on | `string` | `null` | no |
 | <a name="input_cluster_arn"></a> [cluster\_arn](#input\_cluster\_arn) | The ARN of the ECS cluster | `string` | n/a | yes |
 | <a name="input_container_definitions"></a> [container\_definitions](#input\_container\_definitions) | The JSON formatted container definition | `string` | n/a | yes |
 | <a name="input_deployment_circuit_breaker"></a> [deployment\_circuit\_breaker](#input\_deployment\_circuit\_breaker) | The deployment circuit breaker configuration | <pre>object({<br/>    enable   = bool<br/>    rollback = bool<br/>  })</pre> | <pre>{<br/>  "enable": false,<br/>  "rollback": false<br/>}</pre> | no |
