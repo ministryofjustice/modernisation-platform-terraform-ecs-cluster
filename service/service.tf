@@ -5,7 +5,7 @@ resource "aws_ecs_service" "default" {
 
   task_definition = var.pin_task_definition_revision != 0 ? "${aws_ecs_task_definition.default.arn_without_revision}:${var.pin_task_definition_revision}" : aws_ecs_task_definition.default.arn
 
-  # Only use launch_type if no capacity provider is set (They conflict)
+  # launch_type and capacity_provider are conflicting arguments
   launch_type = var.capacity_provider == null ? var.launch_type : null
 
   dynamic "capacity_provider_strategy" {
