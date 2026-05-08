@@ -44,6 +44,12 @@ variable "launch_type" {
   default     = "FARGATE"
 }
 
+variable "capacity_provider" {
+  type        = string
+  description = "Capacity provider for the task to run on"
+  default     = null
+}
+
 variable "desired_count" {
   type        = number
   description = "The number of instances of the task definition to place and keep running"
