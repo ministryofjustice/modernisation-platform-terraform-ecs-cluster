@@ -164,3 +164,14 @@ variable "pin_task_definition_revision" {
   description = "The revision of the task definition to use"
   default     = 0
 }
+
+variable "service_registries" {
+  description = "ECS service discovery configuration"
+  type = object({
+    registry_arn    = string
+    port            = optional(number)
+    container_name  = optional(string)
+    container_port  = optional(number)
+  })
+  default = null
+}

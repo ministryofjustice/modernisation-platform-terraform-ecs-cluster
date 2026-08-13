@@ -49,6 +49,17 @@ resource "aws_ecs_service" "default" {
     rollback = var.deployment_circuit_breaker.rollback
   }
 
+  dynamic "service_registries" {
+    for_each = var.service_registries == null ? [] : [var.service_registries]
+
+    content {
+      registry_arn   = service_registries.value.registry_arn
+      port           = lookup(service_registries.value, "port", null)
+      container_name = lookup(service_registries.value, "container_name", null)
+      container_port = lookup(service_registries.value, "container_port", null)
+    }
+  }
+
   health_check_grace_period_seconds = var.health_check_grace_period_seconds
 
   wait_for_steady_state = var.wait_for_steady_state
