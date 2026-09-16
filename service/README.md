@@ -85,7 +85,7 @@ No modules.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-| ------ | ------------- | ------ | --------- | :--------: |
+|------|-------------|------|---------|:--------:|
 | <a name="input_capacity_provider"></a> [capacity\_provider](#input\_capacity\_provider) | Capacity provider for the task to run on | `string` | `null` | no |
 | <a name="input_cluster_arn"></a> [cluster\_arn](#input\_cluster\_arn) | The ARN of the ECS cluster | `string` | n/a | yes |
 | <a name="input_container_definitions"></a> [container\_definitions](#input\_container\_definitions) | The JSON formatted container definition | `string` | n/a | yes |
@@ -115,7 +115,7 @@ No modules.
 ## Outputs
 
 | Name | Description |
-| ------ | ------------- |
+|------|-------------|
 | <a name="output_service_arn"></a> [service\_arn](#output\_service\_arn) | The ARN for the ECS Service |
 | <a name="output_task_definition_arn"></a> [task\_definition\_arn](#output\_task\_definition\_arn) | The ARN for the ECS Task Definition |
 | <a name="output_task_definition_string"></a> [task\_definition\_string](#output\_task\_definition\_string) | The JSON formatted container definition |
