@@ -18,7 +18,7 @@ locals {
     entryPoint             = var.entry_point
     linuxParameters        = var.linux_parameters
     mountPoints            = var.mount_points
-    dependsOn              = var.depends_on
+    dependsOn              = var.container_dependencies
   }
 
   filtered_container_definition = {

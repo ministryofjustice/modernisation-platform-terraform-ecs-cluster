@@ -130,7 +130,7 @@ variable "linux_parameters" {
   default = null
 }
 
-variable "container dependencies" {
+variable "container_dependencies" {
   description = "ECS container dependencies"
   type = list(object({
     containerName = string
