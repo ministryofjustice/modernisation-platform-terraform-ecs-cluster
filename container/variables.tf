@@ -138,3 +138,9 @@ variable "container_dependencies" {
   }))
   default = null
 }
+
+variable "container_user" {
+  description = "User to run the container as"
+  type        = string
+  default     = null
+}
