@@ -100,6 +100,8 @@ No resources.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_command"></a> [command](#input\_command) | The command for the container | `list(string)` | `null` | no |
+| <a name="input_container_dependencies"></a> [container\_dependencies](#input\_container\_dependencies) | ECS container dependencies | <pre>list(object({<br/>    containerName = string<br/>    condition     = string<br/>  }))</pre> | `null` | no |
+| <a name="input_container_user"></a> [container\_user](#input\_container\_user) | User to run the container as | `string` | `null` | no |
 | <a name="input_cpu"></a> [cpu](#input\_cpu) | The number of cpu units to reserve for the container | `number` | `null` | no |
 | <a name="input_entry_point"></a> [entry\_point](#input\_entry\_point) | The entry point for the container | `list(string)` | `null` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | The environment for the container | <pre>list(object({<br/>    name  = string<br/>    value = string<br/>  }))</pre> | n/a | yes |
