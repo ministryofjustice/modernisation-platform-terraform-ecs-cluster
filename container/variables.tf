@@ -129,3 +129,18 @@ variable "linux_parameters" {
   })
   default = null
 }
+
+variable "container_dependencies" {
+  description = "ECS container dependencies"
+  type = list(object({
+    containerName = string
+    condition     = string
+  }))
+  default = null
+}
+
+variable "container_user" {
+  description = "User to run the container as"
+  type        = string
+  default     = null
+}
