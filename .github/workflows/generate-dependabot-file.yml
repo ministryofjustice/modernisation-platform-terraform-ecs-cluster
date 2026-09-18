@@ -1,5 +1,5 @@
 ---
-name: Generate dependabot file 
+name: Generate dependabot file
 
 "on":
   schedule:
@@ -24,10 +24,10 @@ jobs:
     uses: ministryofjustice/modernisation-platform-github-actions/.github/workflows/aws-secrets-management.yml@d467c7fb1bbeb73162ea736ca13adc8ba2ae74f8 # v6.2.5
     secrets:
       MODERNISATION_PLATFORM_ACCOUNT_NUMBER: ${{ secrets.MODERNISATION_PLATFORM_ACCOUNT_NUMBER }}
-      PASSPHRASE: ${{ secrets.PASSPHRASE }}  
+      PASSPHRASE: ${{ secrets.PASSPHRASE }}
     permissions:
       id-token: write
-    
+
   create-and-commit-dependabot-file:
     permissions:
       contents: write
