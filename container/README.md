@@ -98,7 +98,7 @@ No resources.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-| ------ | ------------- | ------ | --------- | :--------: |
+|------|-------------|------|---------|:--------:|
 | <a name="input_command"></a> [command](#input\_command) | The command for the container | `list(string)` | `null` | no |
 | <a name="input_container_dependencies"></a> [container\_dependencies](#input\_container\_dependencies) | ECS container dependencies | <pre>list(object({<br/>    containerName = string<br/>    condition     = string<br/>  }))</pre> | `null` | no |
 | <a name="input_container_user"></a> [container\_user](#input\_container\_user) | User to run the container as | `string` | `null` | no |
