@@ -98,7 +98,7 @@ No resources.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-| ------ | ------------- | ------ | --------- | :--------: |
+|------|-------------|------|---------|:--------:|
 | <a name="input_command"></a> [command](#input\_command) | The command for the container | `list(string)` | `null` | no |
 | <a name="input_cpu"></a> [cpu](#input\_cpu) | The number of cpu units to reserve for the container | `number` | `null` | no |
 | <a name="input_entry_point"></a> [entry\_point](#input\_entry\_point) | The entry point for the container | `list(string)` | `null` | no |
