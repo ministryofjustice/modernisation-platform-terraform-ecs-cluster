@@ -50,7 +50,6 @@ updates:
         update-types:
           - "minor"
           - "patch"
-
   - package-ecosystem: "gomod"
     directories:
       - "/test"
@@ -66,4 +65,3 @@ updates:
         update-types:
           - "minor"
           - "patch"
-
