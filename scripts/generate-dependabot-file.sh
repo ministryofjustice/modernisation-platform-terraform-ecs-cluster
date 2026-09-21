@@ -77,7 +77,6 @@ append_ecosystem() {
     echo "        update-types:"
     echo '          - "minor"'
     echo '          - "patch"'
-    echo
   } >> "$dependabot_file"
 }
 
