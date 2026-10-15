@@ -1,3 +1,9 @@
+data "aws_route_table" "ecs" {
+  for_each = toset(var.subnets)
+
+  subnet_id = each.value
+}
+
 resource "aws_ecs_service" "default" {
   name = var.name
 
@@ -54,4 +60,18 @@ resource "aws_ecs_service" "default" {
   wait_for_steady_state = var.wait_for_steady_state
 
   tags = var.tags
+
+  lifecycle {
+    precondition {
+      condition = alltrue([
+        for rt in values(data.aws_route_table.ecs) :
+        length([
+          for route in rt.routes :
+          route.gateway_id
+          if route.gateway_id != null && startswith(route.gateway_id, "igw-")
+        ]) == 0
+      ])
+      error_message = "All supplied subnets must be private and must not have a route to an Internet Gateway."
+    }
+  }
 }
