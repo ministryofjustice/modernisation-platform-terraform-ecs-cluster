@@ -1,5 +1,5 @@
 # modernisation-platform-terraform-ecs-cluster
-[![Standards Icon]][Standards Link] [![Format Code Icon]][Format Code Link] [![Scorecards Icon]][Scorecards Link][![SCA Icon]][SCA Link] [![Terraform SCA Icon]][Terraform SCA Link]
+[![Standards Icon]][Standards Link] [![Scorecards Icon]][Scorecards Link] [![Code Quality Icon]][Code Quality Link]
 
 ## Modules
 This repository provides 3 Terraform Modules:
@@ -12,7 +12,7 @@ This repository provides 3 Terraform Modules:
 
 The aim is to provide a reusable framework to deploy ECS and it's associated services in a way that integrates well with the rest of the modernisation platform environments.
 
-Whilst these modules are flexible, they have been designed to work together. The use case behind them is that the services/tasks/containers (using the `service` module) can be deployed independently of the cluster. This means that the ECS Cluster (deployed using the `cluster` module) can be provisioned at environment build time and services/tasks/containers can be provisioned in a seperate process. Importantly, this unlinks the state of the two so that services/tasks/containers can be updated without the need to touch the platform or environment.
+Whilst these modules are flexible, they have been designed to work together. The use case behind them is that the services/tasks/containers (using the `service` module) can be deployed independently of the cluster. This means that the ECS Cluster (deployed using the `cluster` module) can be provisioned at environment build time and services/tasks/containers can be provisioned in a separate process. Importantly, this unlinks the state of the two so that services/tasks/containers can be updated without the need to touch the platform or environment.
 
 <img src="/simple.png" width="450" />
 
@@ -37,11 +37,7 @@ If you're looking to raise an issue with this module, please create a new issue 
 
 [Standards Link]: https://github-community.service.justice.gov.uk/repository-standards/modernisation-platform-terraform-ecs-cluster "Repo standards badge."
 [Standards Icon]: https://github-community.service.justice.gov.uk/repository-standards/api/modernisation-platform-terraform-ecs-cluster/badge
-[Format Code Icon]: https://img.shields.io/github/actions/workflow/status/ministryofjustice/modernisation-platform-terraform-ecs-cluster/format-code.yml?labelColor=231f20&style=for-the-badge&label=Formate%20Code
-[Format Code Link]: https://github.com/ministryofjustice/modernisation-platform-terraform-ecs-cluster/actions/workflows/format-code.yml
 [Scorecards Icon]: https://img.shields.io/github/actions/workflow/status/ministryofjustice/modernisation-platform-terraform-ecs-cluster/scorecards.yml?branch=main&labelColor=231f20&style=for-the-badge&label=Scorecards
 [Scorecards Link]: https://github.com/ministryofjustice/modernisation-platform-terraform-ecs-cluster/actions/workflows/scorecards.yml
-[SCA Icon]: https://img.shields.io/github/actions/workflow/status/ministryofjustice/modernisation-platform-terraform-ecs-cluster/code-scanning.yml?branch=main&labelColor=231f20&style=for-the-badge&label=Secure%20Code%20Analysis
-[SCA Link]: https://github.com/ministryofjustice/modernisation-platform-terraform-ecs-cluster/actions/workflows/code-scanning.yml
-[Terraform SCA Icon]: https://img.shields.io/github/actions/workflow/status/ministryofjustice/modernisation-platform-terraform-ecs-cluster/code-scanning.yml?branch=main&labelColor=231f20&style=for-the-badge&label=Terraform%20Static%20Code%20Analysis
-[Terraform SCA Link]: https://github.com/ministryofjustice/modernisation-platform-terraform-ecs-cluster/actions/workflows/terraform-static-analysis.yml
+[Code Quality Icon]: https://img.shields.io/github/actions/workflow/status/ministryofjustice/modernisation-platform-terraform-ecs-cluster/code-quality.yml?branch=main&labelColor=231f20&style=for-the-badge&label=Code%20Quality
+[Code Quality Link]: https://github.com/ministryofjustice/modernisation-platform-terraform-ecs-cluster/actions/workflows/code-quality.yml
